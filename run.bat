@@ -1,0 +1,5 @@
+(load "mvp.clp")
+(load "SBC-preguntas.clp")
+(load "SBC-reglas-abstraccion.clp")
+(reset)
+(run)
