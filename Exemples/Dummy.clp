@@ -61,7 +61,7 @@
         (create-accessor read-write))
 )
 
-(defclass Niño
+(defclass Nino
     (is-a Persona)
     (role concrete)
     (pattern-match reactive)
@@ -77,11 +77,11 @@
     ([Centelles] of Pueblo
     )
 
-    ([María] of Niño
+    ([Maria] of Nino
     )
 
     ([Pepe] of Adulto
-         (progenitor_de  [María])
+         (progenitor_de  [Maria])
     )
 
 )

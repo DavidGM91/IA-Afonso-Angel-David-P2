@@ -43,4 +43,11 @@
          (es_del_estilo  [Sushi])
     )
 
+    ([Sushi-de-salmon] of Plato
+         (es_del_estilo  [Sushi])
+    )
+    
+    ([Sushi-de-pollo] of Plato
+         (es_del_estilo  [Sushi])
+    )
 )

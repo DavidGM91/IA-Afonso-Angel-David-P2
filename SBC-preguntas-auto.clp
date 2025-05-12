@@ -23,24 +23,25 @@
     ?answer)
 (deffunction ask-question (?question)
     (print ?question)
-    (print crlf)
     (bind ?answer (read))
     ?answer)
 
 ;; Realizamos las preguntas al usuario y almacenamos las respuestas en hechos separados
+
 (defrule determinar-estilo-de-cocina
     ""(declare (salience 100)) =>
     (assert (estilo-de-cocina 
-        (ask-question-with-values "¿Qué estilo de cocina quieres?(Pasta/Sushi)" pasta sushi)
+        pasta
     ))
 )
 
 (defrule determinar-comensales
 	""(declare (salience 95)) => 
 	(assert (comensales 
-		(ask-question "¿Para cuantos comensales?")
+		25
     ))
 )
+
 
 ;; Definimos el template para almacenar el problema concreto
 (deftemplate problema-concreto
