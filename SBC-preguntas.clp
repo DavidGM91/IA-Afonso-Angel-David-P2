@@ -17,6 +17,7 @@
         then (bind ?answer (lowcase ?answer)))
     (while (not (member$ ?answer ?allowed-values)) do
         (print ?question)
+        (print crlf)
         (bind ?answer (read))
         (if (lexemep ?answer) 
             then (bind ?answer (lowcase ?answer))))
