@@ -1,0 +1,301 @@
+@prefix : <http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/> .
+
+<http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#barato
+:barato rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#bebida
+:bebida rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#compatibilidad
+:compatibilidad rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#es_alternativa
+:es_alternativa rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#es_compuesto_de
+:es_compuesto_de rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#es_de_estilo
+:es_de_estilo rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#es_de_tipo
+:es_de_tipo rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#es_fusionable_con
+:es_fusionable_con rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#gucci
+:gucci rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#incluye
+:incluye rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#intermedio
+:intermedio rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#limita
+:limita rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#primer_plato
+:primer_plato rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#primer_plato_t
+:primer_plato_t rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#restringe
+:restringe rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#segundo_plato
+:segundo_plato rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#segundo_plato_t
+:segundo_plato_t rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#tercer_plato
+:tercer_plato rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#tercer_plato_t
+:tercer_plato_t rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#tiene
+:tiene rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_del_estilo
+:es_del_estilo rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Plato ;
+               rdfs:range :Estilo .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:comment "Indica que un plato es de un estilo determinado" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#complejidad
+:complejidad rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#id
+:id rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#nombre
+:nombre rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#pesadez
+:pesadez rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#peso
+:peso rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#precio
+:precio rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#rango_precio
+:rango_precio rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#temporada
+:temporada rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#tipo
+:tipo rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#tipo_de_grupo
+:tipo_de_grupo rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Bebida
+:Bebida rdf:type owl:Class ;
+        rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Categoria
+:Categoria rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Ingrediente
+:Ingrediente rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu
+:Menu rdf:type owl:Class ;
+      rdfs:comment "Define el menu con una serie de aggregados que dependen de su primero, segundo, postre y bebida" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Postre
+:Postre rdf:type owl:Class ;
+        rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Primero
+:Primero rdf:type owl:Class ;
+         rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Restriccion
+:Restriccion rdf:type owl:Class ;
+             rdfs:comment """Define una serie de ingredientes que se desaconseja o prohibe usar en función de su peso.
+Puede ser de distintos tipos como restricciones alimentarias, dietas o religiosas que nos ayuda a definir su peso.""" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Segundo
+:Segundo rdf:type owl:Class ;
+         rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Template_Menu
+:Template_Menu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Tipo_Evento
+:Tipo_Evento rdf:type owl:Class ;
+             rdfs:comment """Define un patrón de un evento que puede tener restricciones implicitas y sobre-escribir algún plato del menu. 
+Como una fiesta religiosa teniendo las restricciones de esta o un banquete de boda incluyendo el pastel.""" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Estilo
+:Estilo rdf:type owl:Class ;
+        rdfs:comment "Nos indica el estilo de cocina" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Evento
+:Evento rdf:type owl:Class ;
+        rdfs:comment "Nos indica los datos del evento" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Plato
+:Plato rdf:type owl:Class ;
+       rdfs:comment "Nos indica un plato del menu" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Macarrones
+:Macarrones rdf:type owl:NamedIndividual ,
+                     :Plato ;
+            :es_del_estilo :Pasta .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pasta
+:Pasta rdf:type owl:NamedIndividual ,
+                :Estilo .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Sushi
+:Sushi rdf:type owl:NamedIndividual ,
+                :Estilo .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Sushi-de-aguacate
+:Sushi-de-aguacate rdf:type owl:NamedIndividual ,
+                            :Plato ;
+                   :es_del_estilo :Sushi .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bebida
+                :Postre
+                :Primero
+                :Segundo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Categoria
+                :Ingrediente
+                :Menu
+                :Restriccion
+                :Template_Menu
+                :Tipo_Evento
+                :Estilo
+                :Evento
+                :Plato
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
