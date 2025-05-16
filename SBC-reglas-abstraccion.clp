@@ -16,45 +16,82 @@
 ;; En este archivo se definen las reglas para abstraer el problema concreto al problema abstracto.
 
 ;; Tamaño del grupo
-(deftemplate group-classification
-   (slot category))
-(defrule classify-group
+(deftemplate clasificacion-grupo
+   (slot categoria))
+(defrule clasificar-grupo
    ?g <- (problema-concreto (comensales ?s))
    =>
    (if (< ?s 2)
-      then (assert (group-classification (category "solo")))
+      then (assert (clasificacion-grupo (categoria solo)))
       else 
       (if (< ?s 5)
-         then (assert (group-classification (category "small")))
+         then (assert (clasificacion-grupo (categoria pequeño)))
          else 
          (if (< ?s 11)
-            then (assert (group-classification (category "medium")))
+            then (assert (clasificacion-grupo (categoria mediano)))
             else 
             (if (< ?s 26)
-               then (assert (group-classification (category "large")))
+               then (assert (clasificacion-grupo (categoria grande)))
                else 
                (if (< ?s 50)
-                  then (assert (group-classification (category "very large")))
-                  else (assert (group-classification (category "mass catering")))
+                  then (assert (clasificacion-grupo (categoria enorme)))
+                  else (assert (clasificacion-grupo (categoria astronomico)))
                )
             )
          )
       )
    )
 )
+
+
 ;; Estilo de cocina
-(defrule classify-style-italiano
-   ?p <- (problema-concreto (estilo Italiano))
+
+(deftemplate estilo-activo
+  (slot nombre-estilo))
+
+(defrule clasificar-estilo
+  (problema-concreto (estilo ?e))
+  =>
+  (assert (estilo-activo (nombre-estilo ?e))))
+
+
+;; Rango Precio Menu
+(deftemplate clasificacion-precio-menu
+   (slot categoria))
+(defrule clasificar-precio-menu
+   ?g <- (problema-concreto (rango-precio-menu ?s))
    =>
-   (assert (active-category [Estilo-Italiano]))
+   (if (< ?s 15)
+      then (assert (clasificacion-precio-menu (category barato)))
+      else 
+      (if (< ?s 30)
+         then (assert (clasificacion-precio-menu (category intermedio)))
+         else (assert (clasificacion-precio-menu (category caro)))
+      )
+   )
 )
-(defrule classify-style-mediterraneo
-   ?p <- (problema-concreto (estilo Mediterráneo))
+
+
+;;Unificationss
+
+(deftemplate problema-abstracto
+    (slot clasificacion-grupo) 
+    (slot estilo-activo)
+    (slot clasificacion-precio-menu)
+)
+
+(defrule crear-problema-abstracto
+   ?cg <- (clasificacion-grupo (categoria ?grupo))
+   ?ea <- (estilo-activo (nombre-estilo ?estilo))
+   ?cpm <- (clasificacion-precio-menu (categoria ?precio))
    =>
-   (assert (active-category [Estilo-Mediterraneo]))
+   (assert (problema-abstracto
+      (clasificacion-grupo ?grupo)
+      (estilo ?estilo)
+      (clasificacion-precio-menu ?precio)
+   ))
+   (retract ?cg ?ea ?cpm)
 )
-(defrule classify-style-asiatico
-   ?p <- (problema-concreto (estilo Asiático))
-   =>
-   (assert (active-category [Estilo-Asiatico]))
-)
+
+
+
