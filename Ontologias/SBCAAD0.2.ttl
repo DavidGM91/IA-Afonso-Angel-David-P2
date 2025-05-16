@@ -14,79 +14,122 @@
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/barato
 :barato rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf owl:topObjectProperty .
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Evento ;
+        rdfs:range :Menu .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/bebida
 :bebida rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf owl:topObjectProperty .
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Menu ;
+        rdfs:range :Bebida .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/compatibilidad
 :compatibilidad rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty .
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:SymmetricProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :Plato ;
+                rdfs:range :Plato .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_alternativa
 :es_alternativa rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty .
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:SymmetricProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :Ingrediente ;
+                rdfs:range :Ingrediente .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_compuesto_de
 :es_compuesto_de rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf owl:topObjectProperty .
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:TransitiveProperty ;
+                 rdfs:domain :Ingrediente ;
+                 rdfs:range :Ingrediente .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_de_estilo
 :es_de_estilo rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty .
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Plato ;
+              rdfs:range :Estilo .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_de_tipo
 :es_de_tipo rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty .
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Evento ;
+            rdfs:range :Tipo_Evento .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_del_estilo
 :es_del_estilo rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
-               rdfs:domain :Plato ;
+               rdfs:domain :Evento ;
                rdfs:range :Estilo .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_fusionable_con
 :es_fusionable_con rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf owl:topObjectProperty .
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdf:type owl:SymmetricProperty ,
+                            owl:TransitiveProperty ;
+                   rdfs:domain :Estilo ;
+                   rdfs:range :Estilo .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/gucci
 :gucci rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf owl:topObjectProperty .
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :Evento ;
+       rdfs:range :Menu .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/incluye
 :incluye rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty .
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Tipo_Evento ;
+         rdfs:range :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/intermedio
 :intermedio rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty .
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Evento ;
+            rdfs:range :Menu .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/limita
 :limita rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf owl:topObjectProperty .
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :Tipo_Evento ;
+        rdfs:range :Restriccion .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/primer_plato
 :primer_plato rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty .
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Menu ;
+              rdfs:range :Primero .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/primer_plato_t
 :primer_plato_t rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty .
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Template_Menu ;
+                rdfs:range :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/restringe
@@ -96,27 +139,41 @@
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/segundo_plato
 :segundo_plato rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty .
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Menu ;
+               rdfs:range :Segundo .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/segundo_plato_t
 :segundo_plato_t rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf owl:topObjectProperty .
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Template_Menu ;
+                 rdfs:range :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tercer_plato
 :tercer_plato rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty .
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Menu ;
+              rdfs:range :Postre .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tercer_plato_t
 :tercer_plato_t rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty .
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Template_Menu ;
+                rdfs:range :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tiene
 :tiene rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf owl:topObjectProperty .
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:domain :Plato ;
+       rdfs:range :Ingrediente .
 
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
@@ -129,12 +186,16 @@ owl:topObjectProperty rdfs:comment "Indica que un plato es de un estilo determin
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/complejidad
 :complejidad rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf owl:topDataProperty .
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Plato ;
+             rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/id
 :id rdf:type owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
+    rdf:type owl:FunctionalProperty ;
     rdfs:domain owl:Thing ;
     rdfs:range xsd:unsignedInt .
 
@@ -157,37 +218,56 @@ owl:topObjectProperty rdfs:comment "Indica que un plato es de un estilo determin
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/pesadez
 :pesadez rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf owl:topDataProperty .
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Plato ;
+         rdfs:range xsd:float .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/peso
 :peso rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf owl:topDataProperty .
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Restriccion ;
+      rdfs:range xsd:float .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/precio
 :precio rdf:type owl:DatatypeProperty ;
-        rdfs:subPropertyOf owl:topDataProperty .
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Plato ;
+        rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/rango_precio
 :rango_precio rdf:type owl:DatatypeProperty ;
-              rdfs:subPropertyOf owl:topDataProperty .
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Evento ;
+              rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/temporada
 :temporada rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty .
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Ingrediente ;
+           rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tipo
 :tipo rdf:type owl:DatatypeProperty ;
-      rdfs:subPropertyOf owl:topDataProperty .
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Restriccion ;
+      rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tipo_de_grupo
 :tipo_de_grupo rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf owl:topDataProperty .
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Evento ;
+               rdfs:range xsd:string .
 
 
 #################################################################
