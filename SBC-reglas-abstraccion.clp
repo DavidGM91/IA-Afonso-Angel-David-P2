@@ -43,13 +43,21 @@
    )
 )
 ;; Estilo de cocina
-(defrule classify-style-pasta
-   (problema-concreto (estilo pasta))
+(defrule classify-style-italiano
+   ?p <- (problema-concreto (estilo Italiano))
+   ?category <- (object (is-a Estilo) (nombre "Italiano"))
    =>
-   (assert (active-category [Pasta]))
+   (assert (active-category ?category))
 )
-(defrule classify-style-sushi
-   (problema-concreto (estilo sushi))
+(defrule classify-style-mediterraneo
+   ?p <- (problema-concreto (estilo Mediterráneo))
+   ?category <- (object (is-a Estilo) (nombre "Mediterráneo"))
    =>
-   (assert (active-category [Sushi]))
+   (assert (active-category ?category))
+)
+(defrule classify-style-asiatico
+   ?p <- (problema-concreto (estilo Asiático))
+   ?category <- (object (is-a Estilo) (nombre "Asiático"))
+   =>
+   (assert (active-category ?category))
 )

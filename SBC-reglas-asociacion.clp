@@ -19,7 +19,7 @@
     (active-category ?style)
     ?plato <- (object 
         (is-a Plato)
-        (es_del_estilo ?style))
+        (es_de_estilo ?style))
     =>
     (printout t "Te recomendamos " (instance-name ?plato) " para el estilo " ?style "." crlf)
 )
