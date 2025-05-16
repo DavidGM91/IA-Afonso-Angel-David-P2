@@ -9,4 +9,6 @@
 **On ClipsCMD**
  - clips -f2 run.bat
 
+De momento solo funciona para el estilo Italiano
+Se puede utilizar debug.bat para cargar automatico este estilo con 25 comensales.
 

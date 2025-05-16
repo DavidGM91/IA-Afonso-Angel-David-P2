@@ -14,12 +14,3 @@
 ;;╚═╝░░╚═╝╚═════╝░░╚════╝░░╚════╝░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░╚════╝░╚═╝░░╚══╝
 
 ;; En este archivo se definen las reglas para derivar la solución del problema abstracto.
-
-(defrule find-plato-de-estilo
-    (active-category ?style)
-    ?plato <- (object 
-        (is-a Plato)
-        (es_de_estilo ?style))
-    =>
-    (printout t "Te recomendamos " (instance-name ?plato) " para el estilo " ?style "." crlf)
-)

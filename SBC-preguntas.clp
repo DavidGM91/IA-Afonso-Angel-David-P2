@@ -36,12 +36,12 @@
 (multislot nombres (type STRING))
 )
 (defrule generar-lista-estilos
-    ""(declare (salience 100))
+    ""(declare (salience 150))
 	(not (lista-estilos)) =>
 	(assert (lista-estilos (estilos (find-all-instances ((?e Estilo)) TRUE))))
 )
 (defrule generar-lista-nombres-estilos
-    ""(declare (salience 99))
+    ""(declare (salience 125))
 	?l <- (lista-estilos (estilos $?estilos))
 	(not (lista-nombres-estilos)) =>
 	(bind $?nombres (create$))

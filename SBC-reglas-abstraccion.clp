@@ -45,19 +45,16 @@
 ;; Estilo de cocina
 (defrule classify-style-italiano
    ?p <- (problema-concreto (estilo Italiano))
-   ?category <- (object (is-a Estilo) (nombre "Italiano"))
    =>
-   (assert (active-category ?category))
+   (assert (active-category [Estilo-Italiano]))
 )
 (defrule classify-style-mediterraneo
    ?p <- (problema-concreto (estilo Mediterráneo))
-   ?category <- (object (is-a Estilo) (nombre "Mediterráneo"))
    =>
-   (assert (active-category ?category))
+   (assert (active-category [Estilo-Mediterraneo]))
 )
 (defrule classify-style-asiatico
    ?p <- (problema-concreto (estilo Asiático))
-   ?category <- (object (is-a Estilo) (nombre "Asiático"))
    =>
-   (assert (active-category ?category))
+   (assert (active-category [Estilo-Asiatico]))
 )

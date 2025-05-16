@@ -313,7 +313,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     ;; Segundos
     ([Segundo-PolloAsado] of Segundo
         (nombre "Pollo Asado")
-        (es_de_estilo [Estilo-Mediterraneo])
+        (es_de_estilo [Estilo-Italiano])
         (tiene [Ingrediente-Pollo] [Ingrediente-Romero])
         (compatibilidad [Primero-PastaCarbonara] [Postre-Fruta])
         (complejidad 2)
