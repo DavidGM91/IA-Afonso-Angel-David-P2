@@ -91,12 +91,43 @@
 	;		then (bind ?answer ?answer)))
 	?answer)
 
+;; Generamos la lista de restricciones posibles
+(deftemplate lista-restricciones-posibles
+(multislot restricciones)
+)
+(deftemplate lista-restricciones-activas
+(multislot restricciones)
+)
+(defrule generar-lista-restricciones-posibles
+    ""(declare (salience 150))
+	(not (lista-restricciones-posibles)) =>
+	(assert (lista-restricciones-posibles (restricciones (find-all-instances ((?e Restriccion)) TRUE))))
+)
+
 ;; Realizamos las preguntas al usuario y almacenamos las respuestas en hechos separados
 (defrule determinar-estilo-de-cocina
     (declare (salience 98)) 
 	?l <- (lista-nombres-estilos (nombres $?nombres))
 	=> 
     (assert (estilo-de-cocina (ask-estilo ?nombres)))
+)
+
+(defrule determinar-restricciones-activas
+    (declare (salience 96)) 
+	?l <- (lista-restricciones-posibles (restricciones $?restricciones-posibles))
+	=> 
+	(bind $?restricciones-activas (create$))
+
+	(bind ?i 1)
+	(while (<= ?i (length$ ?restricciones-posibles))
+	do
+	(bind ?r (nth$ ?i ?restricciones-posibles))
+	(bind ?answer (ask-question-with-values (str-cat "¿Aplicar la restriccion \"" (send ?r get-nombre) "\"? (Y/N): ") y n))
+	(if (eq ?answer y) then (bind $?restricciones-activas (insert$ ?restricciones-activas ?i ?r)))
+	(bind ?i (+ ?i 1))
+	)
+	
+	(assert (lista-restricciones-activas (restricciones ?restricciones-activas)))
 )
 
 (defrule determinar-comensales
