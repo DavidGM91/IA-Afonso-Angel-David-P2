@@ -78,14 +78,13 @@
   (multislot nombres-restricciones))
 
 (defrule clasificar-restricciones
-  ?lr <- (lista-restricciones-activas (restricciones $?restricciones))
+  ?lr <- (problema-concreto (restricciones $?restricciones))
   =>
   (bind $?nombres (create$))
   (foreach ?r ?restricciones
     (bind $?nombres (create$ $?nombres (send ?r get-nombre)))
   )
   (assert (clasificacion-restricciones (nombres-restricciones ?nombres)))
-  (retract ?lr)
 )
 
 

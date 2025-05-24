@@ -131,9 +131,33 @@
 )
 
 (defrule determinar-comensales
-	""(declare (salience 95)) => 
+	""(declare (salience 95))
+	(not (comensales)) =>
 	(assert (comensales 
 		(ask-question "¿Para cuantos comensales?")
+    ))
+)
+
+(defrule determinar-bebida
+    (declare (salience 90)) 
+	(not (menu-con-bebida)) =>
+	(bind ?answer (ask-question-with-values "¿Debería el menú incluir bebida? (Y/N): " y n))
+	(assert (menu-con-bebida (eq ?answer y)))
+)
+
+(defrule determinar-precio-minimo-menu
+    (declare (salience 80)) 
+	(not (precio-minimo-menu)) =>
+	(assert (precio-minimo-menu 
+		(ask-question "¿Cuál es el presupuesto mínimo por persona?")
+    ))
+)
+
+(defrule determinar-precio-maximo-menu
+    (declare (salience 70)) 
+	(not (precio-maximo-menu)) =>
+	(assert (precio-maximo-menu 
+		(ask-question "¿Cuál es el presupuesto máximo por persona?")
     ))
 )
 
@@ -141,16 +165,32 @@
 (deftemplate problema-concreto
     (slot estilo)
     (slot comensales)
+    (slot incluir-bebida)
+    (slot presupuesto-minimo)
+    (slot presupuesto-maximo)
+    (multislot restricciones)
 )
 ;; Y los unificamos en un solo hecho que representa el problema concreto
 (defrule crear-problema-concreto
     ?e <- (estilo-de-cocina ?estilo)
-    ?c <- (comensales ?blah)
+    ?c <- (comensales ?comensales)
+    ?b <- (menu-con-bebida ?bebida)
+    ?pmin <- (precio-minimo-menu ?pminimo)
+    ?pmax <- (precio-maximo-menu ?pmaximo)
+    ?r <- (lista-restricciones-activas (restricciones $?restricciones))
     =>
     (assert (problema-concreto 
         (estilo ?estilo)
-        (comensales ?blah)
+        (comensales ?comensales)
+		(incluir-bebida ?bebida)
+		(presupuesto-minimo ?pminimo)
+		(presupuesto-maximo ?pmaximo)
+		(restricciones ?restricciones)
     ))
     (retract ?e)
     (retract ?c)
+    (retract ?b)
+    (retract ?pmin)
+    (retract ?pmax)
+    (retract ?r)
 )
