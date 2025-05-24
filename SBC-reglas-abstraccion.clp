@@ -18,6 +18,7 @@
 ;; Tamaño del grupo
 (deftemplate clasificacion-grupo
    (slot categoria))
+
 (defrule clasificar-grupo
    ?g <- (problema-concreto (comensales ?s))
    =>
@@ -56,20 +57,37 @@
 
 
 ;; Rango Precio Menu
-(deftemplate clasificacion-precio-menu
-   (slot categoria))
-(defrule clasificar-precio-menu
-   ?g <- (problema-concreto (rango-precio-menu ?s))
-   =>
-   (if (< ?s 15)
-      then (assert (clasificacion-precio-menu (category barato)))
-      else 
-      (if (< ?s 30)
-         then (assert (clasificacion-precio-menu (category intermedio)))
-         else (assert (clasificacion-precio-menu (category caro)))
-      )
-   )
+; (deftemplate clasificacion-precio-menu
+;    (slot categoria))
+; (defrule clasificar-precio-menu
+;    ?g <- (problema-concreto (rango-precio-menu ?s))
+;    =>
+;    (if (< ?s 15)
+;       then (assert (clasificacion-precio-menu (category barato)))
+;       else 
+;       (if (< ?s 30)
+;          then (assert (clasificacion-precio-menu (category intermedio)))
+;          else (assert (clasificacion-precio-menu (category caro)))
+;       )
+;    )
+; )
+
+
+;; Restricciones Activas
+(deftemplate clasificacion-restricciones
+  (multislot nombres-restricciones))
+
+(defrule clasificar-restricciones
+  ?lr <- (lista-restricciones-activas (restricciones $?restricciones))
+  =>
+  (bind $?nombres (create$))
+  (foreach ?r ?restricciones
+    (bind $?nombres (create$ $?nombres (send ?r get-nombre)))
+  )
+  (assert (clasificacion-restricciones (nombres-restricciones ?nombres)))
+  (retract ?lr)
 )
+
 
 
 ;;Unificationss
@@ -77,20 +95,23 @@
 (deftemplate problema-abstracto
     (slot clasificacion-grupo) 
     (slot estilo-activo)
-    (slot clasificacion-precio-menu)
+    (multislot restricciones-activas)
+    ;(slot clasificacion-precio-menu)
 )
 
 (defrule crear-problema-abstracto
    ?cg <- (clasificacion-grupo (categoria ?grupo))
    ?ea <- (estilo-activo (nombre-estilo ?estilo))
-   ?cpm <- (clasificacion-precio-menu (categoria ?precio))
+   ?cr <- (clasificacion-restricciones (nombres-restricciones $?restricciones))
+   ; ?cpm <- (clasificacion-precio-menu (categoria ?precio))
    =>
    (assert (problema-abstracto
       (clasificacion-grupo ?grupo)
-      (estilo ?estilo)
-      (clasificacion-precio-menu ?precio)
+      (estilo-activo ?estilo)
+      (restricciones-activas ?restricciones)
+      ;(clasificacion-precio-menu ?precio)
    ))
-   (retract ?cg ?ea ?cpm)
+   (retract ?cg ?ea ?cr );?cpm
 )
 
 
