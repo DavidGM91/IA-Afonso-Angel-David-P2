@@ -57,20 +57,37 @@
 
 
 ;; Rango Precio Menu
-; (deftemplate clasificacion-precio-menu
-;    (slot categoria))
-; (defrule clasificar-precio-menu
-;    ?g <- (problema-concreto (rango-precio-menu ?s))
-;    =>
-;    (if (< ?s 15)
-;       then (assert (clasificacion-precio-menu (category barato)))
-;       else 
-;       (if (< ?s 30)
-;          then (assert (clasificacion-precio-menu (category intermedio)))
-;          else (assert (clasificacion-precio-menu (category caro)))
-;       )
-;    )
-; )
+(deftemplate clasificacion-rango-precio
+    (multislot categorias)
+    (slot minimo)
+    (slot maximo))
+
+(defrule clasificar-rango-precio
+    (problema-concreto (presupuesto-minimo ?min) (presupuesto-maximo ?max))
+    =>
+    (bind $?categorias (create$))
+    
+    (if (or (<= ?max 20)
+            (and (>= ?min 0) (< ?min 20)))
+        then
+        (bind $?categorias (create$ $?categorias "economico")))
+    
+    (if (or (and (> ?max 20) (<= ?max 35))
+            (and (> ?min 20) (<= ?min 35))
+            (and (<= ?min 20) (> ?max 35)))
+        then
+        (bind $?categorias (create$ $?categorias "normal")))
+    
+    (if (> ?max 35) then
+        (bind $?categorias (create$ $?categorias "caro")))
+    
+    
+    (assert (clasificacion-rango-precio
+        (categorias $?categorias)
+        (minimo ?min)
+        (maximo ?max)
+    ))
+)
 
 
 ;; Restricciones Activas
@@ -95,23 +112,24 @@
     (slot clasificacion-grupo) 
     (slot estilo-activo)
     (multislot restricciones-activas)
-    ;(slot clasificacion-precio-menu)
+    (multislot categorias-precio)
+    (slot incluir-bebida)
 )
 
 (defrule crear-problema-abstracto
    ?cg <- (clasificacion-grupo (categoria ?grupo))
    ?ea <- (estilo-activo (nombre-estilo ?estilo))
    ?cr <- (clasificacion-restricciones (nombres-restricciones $?restricciones))
-   ; ?cpm <- (clasificacion-precio-menu (categoria ?precio))
+   ?cp <- (clasificacion-rango-precio (categorias $?categorias-precio))
+   ?b <- (problema-concreto (incluir-bebida ?bebida))
    =>
    (assert (problema-abstracto
       (clasificacion-grupo ?grupo)
       (estilo-activo ?estilo)
       (restricciones-activas ?restricciones)
-      ;(clasificacion-precio-menu ?precio)
+      (categorias-precio $?categorias-precio)
+      (incluir-bebida ?bebida)
    ))
-   (retract ?cg ?ea ?cr );?cpm
+   (retract ?cg ?ea ?cr ?cp)
 )
-
-
 
