@@ -36,7 +36,7 @@
                else 
                (if (< ?s 50)
                   then (assert (clasificacion-grupo (categoria enorme)))
-                  else (assert (clasificacion-grupo (categoria astronomico)))
+                  else (assert (clasificacion-grupo (categoria mass-catering)))
                )
             )
          )

@@ -47,3 +47,25 @@
     ;    (tercer_plato_t (send ?t3 get-tercer_plato_t))
     ;)
 )
+
+(deftemplate complejidad-maxima
+   (slot maximo))
+
+(defrule determinar-complejidad-maxima
+	(not (complejidad-maxima))
+	(problema-abstracto (clasificacion-grupo ?grupo))
+	=>
+	(if (eq ?grupo mediano) then (assert (complejidad-maxima (maximo 4))))
+	(if (eq ?grupo grande) then (assert (complejidad-maxima (maximo 3))))
+	(if (eq ?grupo enorme) then (assert (complejidad-maxima (maximo 2))))
+	(if (eq ?grupo mass-catering) then (assert (complejidad-maxima (maximo 2))))
+)
+
+(defrule eliminar-platos-complejos
+	(complejidad-maxima (maximo ?cm))
+	?plato <- (object 
+        (is-a Plato)
+        (complejidad ?c))
+	=>
+	(if (> ?c ?cm) then (unmake-instance ?plato))
+)
