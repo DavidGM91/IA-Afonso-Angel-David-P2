@@ -1,5 +1,6 @@
 (clear)
 (load "ontologia.clp")
+(load "SBC-preguntas.clp")
 (load "SBC-preguntas-auto.clp")
 (load "SBC-reglas-abstraccion.clp")
 (load "SBC-reglas-asociacion.clp")

@@ -108,12 +108,14 @@
 (defrule determinar-estilo-de-cocina
     (declare (salience 98)) 
 	?l <- (lista-nombres-estilos (nombres $?nombres))
+	(not (estilo-de-cocina))
 	=> 
     (assert (estilo-de-cocina (ask-estilo ?nombres)))
 )
 
 (defrule determinar-restricciones-activas
     (declare (salience 96)) 
+	(not (restricciones-activas))
 	?l <- (lista-restricciones-posibles (restricciones $?restricciones-posibles))
 	=> 
 	(bind $?restricciones-activas (create$))
