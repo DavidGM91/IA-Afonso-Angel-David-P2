@@ -72,23 +72,52 @@
 	)
 
 	(bind ?answer (read))
-	;(while (not (member$ ?answer ?allowed-values)) do
-	;	(print "¿Qué estilo de cocina quieres?")
-	;	(print crlf)
-	;	(print "Estilos disponibles:")
-	;	(print crlf)
-	;
-	;	(bind ?i 1)
-	;	(while (<= ?i (length$ ?allowed-values))
-	;	do
-	;	(bind ?e (nth$ ?i ?allowed-values))
-	;	(printout t ?e crlf)
-	;	(bind ?i (+ ?i 1))
-	;	)
-	;	
-	;	(bind ?answer (read))
-	;	(if (lexemep ?answer) 
-	;		then (bind ?answer ?answer)))
+	?answer)
+
+;; Generamos la lista de eventos disponibles
+(deftemplate lista-eventos
+(multislot eventos)
+)
+(deftemplate lista-nombres-eventos
+(multislot nombres (type STRING))
+)
+(defrule generar-lista-eventos
+    ""(declare (salience 150))
+	(not (lista-eventos)) =>
+	(assert (lista-eventos (eventos (find-all-instances ((?e Tipo_Evento)) TRUE))))
+)
+(defrule generar-lista-nombres-eventos
+    ""(declare (salience 125))
+	?l <- (lista-eventos (eventos $?eventos))
+	(not (lista-nombres-eventos)) =>
+	(bind $?nombres (create$))
+	
+	(bind ?i 1)
+	(while (<= ?i (length$ ?eventos))
+	do
+	(bind ?e (nth$ ?i ?eventos))
+	(bind $?nombres (insert$ ?nombres ?i (send ?e get-nombre)))
+	(bind ?i (+ ?i 1))
+	)
+	
+	(assert (lista-nombres-eventos (nombres ?nombres)))
+)
+;;
+(deffunction ask-evento ($?allowed-values)
+	(print "¿Qué tipo de evento se celebrará?")
+	(print crlf)
+	(print "Eventos disponibles:")
+	(print crlf)
+
+	(bind ?i 1)
+	(while (<= ?i (length$ ?allowed-values))
+	do
+	(bind ?e (nth$ ?i ?allowed-values))
+	(printout t ?e crlf)
+	(bind ?i (+ ?i 1))
+	)
+
+	(bind ?answer (read))
 	?answer)
 
 ;; Generamos la lista de restricciones posibles
@@ -111,6 +140,14 @@
 	(not (estilo-de-cocina))
 	=> 
     (assert (estilo-de-cocina (ask-estilo ?nombres)))
+)
+
+(defrule determinar-tipo-de-evento
+    (declare (salience 97)) 
+	?l <- (lista-nombres-eventos (nombres $?nombres))
+	(not (tipo-de-evento))
+	=> 
+    (assert (tipo-de-evento (ask-evento ?nombres)))
 )
 
 (defrule determinar-restricciones-activas
@@ -166,6 +203,7 @@
 ;; Definimos el template para almacenar el problema concreto
 (deftemplate problema-concreto
     (slot estilo)
+    (slot evento)
     (slot comensales)
     (slot incluir-bebida)
     (slot presupuesto-minimo)
@@ -174,7 +212,8 @@
 )
 ;; Y los unificamos en un solo hecho que representa el problema concreto
 (defrule crear-problema-concreto
-    ?e <- (estilo-de-cocina ?estilo)
+    ?es <- (estilo-de-cocina ?estilo)
+    ?ev <- (tipo-de-evento ?evento)
     ?c <- (comensales ?comensales)
     ?b <- (menu-con-bebida ?bebida)
     ?pmin <- (precio-minimo-menu ?pminimo)
@@ -183,13 +222,15 @@
     =>
     (assert (problema-concreto 
         (estilo ?estilo)
+        (evento ?evento)
         (comensales ?comensales)
 		(incluir-bebida ?bebida)
 		(presupuesto-minimo ?pminimo)
 		(presupuesto-maximo ?pmaximo)
 		(restricciones ?restricciones)
     ))
-    (retract ?e)
+    (retract ?es)
+    (retract ?ev)
     (retract ?c)
     (retract ?b)
     (retract ?pmin)
