@@ -641,6 +641,125 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                                  :Italiano ;
               :nombre "Mediterraneo" .
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Arroz
+:Arroz rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Arroz" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Carne
+:Carne rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Carne" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Pan
+:Pan rdf:type owl:NamedIndividual ,
+              :Ingrediente ;
+     :nombre "Pan" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Cat_Carne
+:Cat_Carne rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Cat_Ensalada
+:Cat_Ensalada rdf:type owl:NamedIndividual ,
+                       :Categoria .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Ensalada_Cesar
+:Ensalada_Cesar rdf:type owl:NamedIndividual ,
+                         :Primero ;
+                :es_de_categoria :Cat_Ensalada ;
+                :es_de_estilo :Mediterraneo ;
+                :tiene :Lechuga ,
+                       :Pollo ,
+                       :Queso ,
+                       :Pan ;
+                :complejidad 2 ;
+                :nombre "Ensalada César" ;
+                :pesadez 0.5 ;
+                :precio 8 .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Arroz_con_pollo
+:Arroz_con_pollo rdf:type owl:NamedIndividual ,
+                          :Segundo ;
+                 :es_de_categoria :Cat_Carne ;
+                 :es_de_estilo :Espanol ,
+                                :Mediterraneo ;
+                 :tiene :Arroz ,
+                        :Pollo ,
+                        :Salsa_de_tomate ;
+                 :complejidad 3 ;
+                 :nombre "Arroz con pollo" ;
+                 :pesadez 0.7 ;
+                 :precio 10 .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Flan
+:Flan rdf:type owl:NamedIndividual ,
+               :Postre ;
+      :es_de_categoria :Cat_Dulce ;
+      :tiene :Huevo ,
+             :Leche ;
+      :complejidad 2 ;
+      :nombre "Flan" ;
+      :pesadez 0.6 ;
+      :precio 4 .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Cerveza
+:Cerveza rdf:type owl:NamedIndividual ,
+                   :Bebida ;
+          :es_de_categoria :Cat_Bebida ;
+          :es_de_estilo :Espanol ,
+                         :Mediterraneo ;
+          :tiene :Alcohol ,
+                 :Cebada ;
+          :complejidad 1 ;
+          :nombre "Cerveza" ;
+          :pesadez 0.5 ;
+          :precio 3 .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Cebada
+:Cebada rdf:type owl:NamedIndividual ,
+                  :Ingrediente ;
+         :nombre "Cebada" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Vegetariano
+:Vegetariano rdf:type owl:NamedIndividual ,
+                      :Restriccion ;
+             :restringe :Carne ,
+                        :Pescado ;
+             :peso 0.8 ;
+             :tipo "Dietaria" ,
+                   "Estilo de vida" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Vegano
+:Vegano rdf:type owl:NamedIndividual ,
+                 :Restriccion ;
+        :restringe :Carne ,
+                   :Huevo ,
+                   :Leche ,
+                   :Pescado ,
+                   :Queso ;
+        :peso 1 ;
+        :tipo "Dietaria" ,
+              "Estilo de vida" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Boda
+:Boda rdf:type owl:NamedIndividual ,
+               :Tipo_Evento ;
+      :incluye :Cat_Pastel ;
+      :limita :Vegetariano .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Tailandes
+:Tailandes rdf:type owl:NamedIndividual ,
+                     :Estilo ;
+            :es_fusionable_con :Asiatico ;
+            :nombre "Tailandes" .
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Boda
+:Menu_Boda rdf:type owl:NamedIndividual ,
+                    :Template_Menu ;
+           :primer_plato_t :Cat_Ensalada ;
+           :segundo_plato_t :Cat_Carne ;
+           :tercer_plato_t :Cat_Pastel .
 
 #################################################################
 #    General axioms
