@@ -40,7 +40,7 @@
     (send ?segundo get-nombre) " y " (send ?postre get-nombre) 
      " para el estilo " ?nombre-estilo ". Por " 
      (* ?precio ?s)
-     " euros. A " ?precio " por persona." crlf)
+     " monedas. A " ?precio " por persona." crlf)
 	(unmake-instance ?t)
 )
 
@@ -69,6 +69,6 @@
     (send ?segundo get-nombre) ", " (send ?postre get-nombre) " y " (send ?bebida get-nombre)
      " para el estilo " ?nombre-estilo ". Por " 
      (* ?precio ?s)
-     " euros. A " ?precio " por persona." crlf)
+     " monedas. A " ?precio " por persona." crlf)
 	(unmake-instance ?t)
 )
