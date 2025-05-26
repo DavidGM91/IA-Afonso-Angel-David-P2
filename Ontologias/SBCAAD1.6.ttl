@@ -363,70 +363,6 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Asiatico_2
-:Menu_Asiatico_2 rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Arroz ;
-                 :segundo_plato_t :Cat_Pescado ;
-                 :tercer_plato_t :Cat_Pastel .
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Asiatico_3
-:Menu_Asiatico_3 rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Sopa ;
-                 :segundo_plato_t :Cat_Pescado ;
-                 :tercer_plato_t :Cat_Pastel .
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Mediterraneo
-:Menu_Mediterraneo rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Sopa ;
-                 :segundo_plato_t :Cat_Carne ;
-                 :tercer_plato_t :Cat_Pastel .    
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Mediterraneo_2
-:Menu_Mediterraneo_2 rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Ensalada ;
-                 :segundo_plato_t :Cat_Marisco ;
-                 :tercer_plato_t :Cat_Fruta .     
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Mediterraneo_3
-:Menu_Mediterraneo_3 rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Sopa ;
-                 :segundo_plato_t :Cat_Pescado ;
-                 :tercer_plato_t :Cat_Fruta .                                               
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Italiano
-:Menu_Italiano rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Sopa ;
-                 :segundo_plato_t :Cat_Pasta ;
-                 :tercer_plato_t :Cat_Pastel .    
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Italiano_2
-:Menu_Italiano_2 rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Ensalada ;
-                 :segundo_plato_t :Cat_Carne ;
-                 :tercer_plato_t :Cat_Fruta .     
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Menu_Italiano_3
-:Menu_Italiano_3 rdf:type owl:NamedIndividual ,
-                          :Template_Menu ;
-                 :primer_plato_t :Cat_Sopa ;
-                 :segundo_plato_t :Cat_Pasta ;
-                 :tercer_plato_t :Cat_Fruta .  
-
-
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Aceite
 :Aceite rdf:type owl:NamedIndividual ,
                  :Ingrediente ;
@@ -511,7 +447,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 :Asiatico rdf:type owl:NamedIndividual ,
                    :Estilo ;
           :es_fusionable_con :Tailandes ;
-          :tiene_template :Menu_Asiatico ;
+          :tiene_template :Menu_Asiatico ,
+                          :Menu_Asiatico_2 ,
+                          :Menu_Asiatico_3 ;
           :nombre "Asiatico" .
 
 
@@ -613,8 +551,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cebolla
 :Cebolla rdf:type owl:NamedIndividual ,
-                 :Ingrediente ;
-        :nombre "Cebolla" .
+                  :Ingrediente ;
+         :nombre "Cebolla" .
+
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cena_de_gala
 :Cena_de_gala rdf:type owl:NamedIndividual ,
@@ -790,7 +729,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                    :Estilo ;
           :es_fusionable_con :Espanol ,
                              :Mediterraneo ;
-          :tiene_template :Pasta_y_pescado ;
+          :tiene_template :Menu_Italiano ,
+                          :Menu_Italiano_2 ,
+                          :Menu_Italiano_3 ;
           :nombre "Italiano" .
 
 
@@ -836,15 +777,18 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Marisco
 :Marisco rdf:type owl:NamedIndividual ,
-                :Ingrediente ;
-       :nombre "Marisco" .
+                  :Ingrediente ;
+         :nombre "Marisco" .
+
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Mediterraneo
 :Mediterraneo rdf:type owl:NamedIndividual ,
                        :Estilo ;
               :es_fusionable_con :Espanol ,
                                  :Italiano ;
-              :tiene_template :Pasta_y_pescado ;
+              :tiene_template :Menu_Mediterraneo ,
+                              :Menu_Mediterraneo_2 ,
+                              :Menu_Mediterraneo_3 ;
               :nombre "Mediterraneo" .
 
 
@@ -854,6 +798,22 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                :primer_plato_t :Cat_Sopa ;
                :segundo_plato_t :Cat_Arroz ;
                :tercer_plato_t :Cat_Dulce .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Asiatico_2
+:Menu_Asiatico_2 rdf:type owl:NamedIndividual ,
+                          :Template_Menu ;
+                 :primer_plato_t :Cat_Arroz ;
+                 :segundo_plato_t :Cat_Pescado ;
+                 :tercer_plato_t :Cat_Pastel .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Asiatico_3
+:Menu_Asiatico_3 rdf:type owl:NamedIndividual ,
+                          :Template_Menu ;
+                 :primer_plato_t :Cat_Sopa ;
+                 :segundo_plato_t :Cat_Pescado ;
+                 :tercer_plato_t :Cat_Pastel .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Espanol
@@ -879,6 +839,54 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                       :primer_plato :Sopa_de_cebolla ;
                       :segundo_plato :Filete ;
                       :tercer_plato :Profiteroles .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Italiano
+:Menu_Italiano rdf:type owl:NamedIndividual ,
+                        :Template_Menu ;
+               :primer_plato_t :Cat_Sopa ;
+               :segundo_plato_t :Cat_Pasta ;
+               :tercer_plato_t :Cat_Pastel .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Italiano_2
+:Menu_Italiano_2 rdf:type owl:NamedIndividual ,
+                          :Template_Menu ;
+                 :primer_plato_t :Cat_Ensalada ;
+                 :segundo_plato_t :Cat_Carne ;
+                 :tercer_plato_t :Cat_Fruta .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Italiano_3
+:Menu_Italiano_3 rdf:type owl:NamedIndividual ,
+                          :Template_Menu ;
+                 :primer_plato_t :Cat_Sopa ;
+                 :segundo_plato_t :Cat_Pasta ;
+                 :tercer_plato_t :Cat_Fruta .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Mediterraneo
+:Menu_Mediterraneo rdf:type owl:NamedIndividual ,
+                            :Template_Menu ;
+                   :primer_plato_t :Cat_Sopa ;
+                   :segundo_plato_t :Cat_Carne ;
+                   :tercer_plato_t :Cat_Pastel .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Mediterraneo_2
+:Menu_Mediterraneo_2 rdf:type owl:NamedIndividual ,
+                              :Template_Menu ;
+                     :primer_plato_t :Cat_Ensalada ;
+                     :segundo_plato_t :Cat_Marisco ;
+                     :tercer_plato_t :Cat_Fruta .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Mediterraneo_3
+:Menu_Mediterraneo_3 rdf:type owl:NamedIndividual ,
+                              :Template_Menu ;
+                     :primer_plato_t :Cat_Sopa ;
+                     :segundo_plato_t :Cat_Pescado ;
+                     :tercer_plato_t :Cat_Fruta .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Mexicano
