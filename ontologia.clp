@@ -1,8 +1,8 @@
 ;;; ---------------------------------------------------------
 ;;; ontologia.clp
 ;;; Translated by owl2clips
-;;; Translated to CLIPS from ontology .\SBCAAD1.6.ttl
-;;; :Date 26/05/2025 22:50:02
+;;; Translated to CLIPS from ontology .\SBCAAD1.8.ttl
+;;; :Date 27/05/2025 00:49:42
 
 (defclass Plato "Nos indica un plato del menu"
     (is-a USER)
@@ -230,6 +230,14 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Aguacate")
     )
 
+    ([Albahaca] of Ingrediente
+         (nombre  "Albahaca")
+    )
+
+    ([Alcachofa] of Ingrediente
+         (nombre  "Alcachofa")
+    )
+
     ([Alcohol] of Ingrediente
          (nombre  "Alcohol")
     )
@@ -238,8 +246,32 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Alga")
     )
 
+    ([Almejas] of Ingrediente
+         (nombre  "Almejas")
+    )
+
     ([Arroz] of Ingrediente
          (nombre  "Arroz")
+    )
+
+    ([Arroz_chaufa] of Segundo
+         (es_de_categoria  [Cat_Arroz])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Huevo] [Verduras])
+         (complejidad  3)
+         (nombre  "Arroz chaufa")
+         (pesadez  0.7)
+         (precio  10)
+    )
+
+    ([Arroz_con_curry] of Segundo
+         (es_de_categoria  [Cat_Arroz])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Curry])
+         (complejidad  2)
+         (nombre  "Arroz con curry")
+         (pesadez  0.6)
+         (precio  9)
     )
 
     ([Arroz_con_pollo] of Segundo
@@ -252,6 +284,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  10)
     )
 
+    ([Arroz_con_verduras] of Primero
+         (es_de_categoria  [Cat_Arroz])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Verduras])
+         (complejidad  2)
+         (nombre  "Arroz con verduras")
+         (pesadez  0.6)
+         (precio  8)
+    )
+
     ([Arroz_frito] of Segundo
          (es_de_categoria  [Cat_Arroz])
          (es_de_estilo  [Asiatico])
@@ -262,10 +304,52 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  8)
     )
 
+    ([Arroz_glutinoso] of Ingrediente
+         (nombre  "Arroz glutinoso")
+    )
+
+    ([Arroz_negro] of Segundo
+         (es_de_categoria  [Cat_Marisco])
+         (es_de_estilo  [Mediterraneo])
+         (tiene  [Arroz] [Calamares])
+         (complejidad  3)
+         (nombre  "Arroz negro")
+         (pesadez  0.8)
+         (precio  15)
+    )
+
     ([Asiatico] of Estilo
          (es_fusionable_con  [Tailandes])
          (tiene_template  [Menu_Asiatico] [Menu_Asiatico_2] [Menu_Asiatico_3])
          (nombre  "Asiatico")
+    )
+
+    ([Atun] of Ingrediente
+         (nombre  "Atún")
+    )
+
+    ([Atun_con_verduras] of Segundo
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Asiatico] [Tailandes])
+         (tiene  [Atun] [Verduras])
+         (complejidad  2)
+         (nombre  "Atún con verduras")
+         (pesadez  0.5)
+         (precio  14)
+    )
+
+    ([Azucar] of Ingrediente
+         (nombre  "Azúcar")
+    )
+
+    ([Bacalao_al_horno] of Segundo
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Espanol] [Mediterraneo])
+         (tiene  [Pescado] [Tomate])
+         (complejidad  3)
+         (nombre  "Bacalao al horno")
+         (pesadez  0.7)
+         (precio  15)
     )
 
     ([Boda] of Tipo_Evento
@@ -274,8 +358,32 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Boda")
     )
 
+    ([Brocheta_de_fruta] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Asiatico] [Tailandes])
+         (tiene  [Coco] [Mango])
+         (complejidad  1)
+         (nombre  "Brocheta de fruta")
+         (pesadez  0.3)
+         (precio  4)
+    )
+
     ([Cafe] of Ingrediente
          (nombre  "Cafe")
+    )
+
+    ([Calamares] of Ingrediente
+         (nombre  "Calamares")
+    )
+
+    ([Cannoli_Siciliani] of Postre
+         (es_de_categoria  [Cat_Dulce])
+         (es_de_estilo  [Italiano])
+         (tiene  [Chocolate] [Queso])
+         (complejidad  2)
+         (nombre  "Cannoli Siciliani")
+         (pesadez  0.5)
+         (precio  8)
     )
 
     ([Carne] of Ingrediente
@@ -352,6 +460,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  3)
     )
 
+    ([Ceviche] of Primero
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Asiatico] [Tailandes])
+         (tiene  [Limon] [Pescado])
+         (complejidad  2)
+         (nombre  "Ceviche")
+         (pesadez  0.4)
+         (precio  10)
+    )
+
     ([Chile] of Ingrediente
          (nombre  "Chile")
     )
@@ -375,6 +493,20 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Cumpleaños infantil")
     )
 
+    ([Curry] of Ingrediente
+         (nombre  "Curry")
+    )
+
+    ([Ensalada_Caprese] of Primero
+         (es_de_categoria  [Cat_Ensalada])
+         (es_de_estilo  [Italiano])
+         (tiene  [Albahaca] [Queso] [Tomate])
+         (complejidad  1)
+         (nombre  "Ensalada Caprese")
+         (pesadez  0.3)
+         (precio  7)
+    )
+
     ([Ensalada_Cesar] of Primero
          (es_de_categoria  [Cat_Ensalada])
          (es_de_estilo  [Mediterraneo])
@@ -385,10 +517,44 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  8)
     )
 
+    ([Ensalada_de_alcachofas] of Primero
+         (es_de_categoria  [Cat_Ensalada])
+         (es_de_estilo  [Italiano] [Mediterraneo])
+         (tiene  [Alcachofa] [Limon])
+         (complejidad  2)
+         (nombre  "Ensalada de alcachofas")
+         (pesadez  0.4)
+         (precio  8)
+    )
+
+    ([Ensalada_de_frutas] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Asiatico] [Espanol] [Italiano] [Mediterraneo] [Tailandes])
+         (tiene  [Coco] [Mango])
+         (complejidad  1)
+         (nombre  "Ensalada de frutas")
+         (pesadez  0.3)
+         (precio  4)
+    )
+
+    ([Ensalada_griega] of Primero
+         (es_de_categoria  [Cat_Ensalada])
+         (es_de_estilo  [Mediterraneo])
+         (tiene  [Aceite] [Queso] [Tomate])
+         (complejidad  1)
+         (nombre  "Ensalada griega")
+         (pesadez  0.4)
+         (precio  6)
+    )
+
     ([Espanol] of Estilo
          (es_fusionable_con  [Italiano] [Mediterraneo])
          (tiene_template  [Menu_Espanol])
          (nombre  "Espanol")
+    )
+
+    ([Espinacas] of Ingrediente
+         (nombre  "Espinacas")
     )
 
     ([Fiesta_infantil] of Tipo_Evento
@@ -464,8 +630,22 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (tipo  "Religiosa")
     )
 
+    ([Lasagna] of Segundo
+         (es_de_categoria  [Cat_Pasta])
+         (es_de_estilo  [Italiano])
+         (tiene  [Carne] [Queso] [Salsa_de_tomate])
+         (complejidad  3)
+         (nombre  "Lasagna")
+         (pesadez  0.8)
+         (precio  14)
+    )
+
     ([Leche] of Ingrediente
          (nombre  "Leche")
+    )
+
+    ([Leche_de_coco] of Ingrediente
+         (nombre  "Leche de coco")
     )
 
     ([Lechuga] of Ingrediente
@@ -484,14 +664,52 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Mango")
     )
 
+    ([Mango_Sticky_Rice] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz_glutinoso] [Mango])
+         (complejidad  2)
+         (nombre  "Mango Sticky Rice")
+         (pesadez  0.4)
+         (precio  7)
+    )
+
     ([Marisco] of Ingrediente
          (nombre  "Marisco")
+    )
+
+    ([Matcha_Tiramisu] of Postre
+         (es_de_categoria  [Cat_Dulce])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Queso] [Te_Verde])
+         (complejidad  3)
+         (nombre  "Matcha Tiramisú")
+         (pesadez  0.6)
+         (precio  10)
     )
 
     ([Mediterraneo] of Estilo
          (es_fusionable_con  [Espanol] [Italiano])
          (tiene_template  [Menu_Mediterraneo] [Menu_Mediterraneo_2] [Menu_Mediterraneo_3])
          (nombre  "Mediterraneo")
+    )
+
+    ([Mejillones] of Ingrediente
+         (nombre  "Mejillones")
+    )
+
+    ([Melon] of Ingrediente
+         (nombre  "Melón")
+    )
+
+    ([Melon_con_jamon] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Espanol] [Italiano] [Mediterraneo])
+         (tiene  [Melon])
+         (complejidad  1)
+         (nombre  "Melón con jamón")
+         (pesadez  0.4)
+         (precio  5)
     )
 
     ([Menu_Asiatico] of Template_Menu
@@ -598,6 +816,30 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Mexicano")
     )
 
+    ([Miel] of Ingrediente
+         (nombre  "Miel")
+    )
+
+    ([Minestrone] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Italiano] [Mediterraneo])
+         (tiene  [Pasta] [Tomate] [Verduras])
+         (complejidad  2)
+         (nombre  "Minestrone")
+         (pesadez  0.5)
+         (precio  8)
+    )
+
+    ([Mochi] of Postre
+         (es_de_categoria  [Cat_Dulce])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz_glutinoso] [Azucar])
+         (complejidad  2)
+         (nombre  "Mochi")
+         (pesadez  0.4)
+         (precio  5)
+    )
+
     ([Ninguno] of Tipo_Evento
          (nombre  "Ninguno")
     )
@@ -607,6 +849,26 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "No alcoholico")
          (peso  1)
          (tipo  "Estilo de vida")
+    )
+
+    ([Osso_buco] of Segundo
+         (es_de_categoria  [Cat_Carne])
+         (es_de_estilo  [Italiano])
+         (tiene  [Carne] [Tomate])
+         (complejidad  3)
+         (nombre  "Osso buco")
+         (pesadez  0.8)
+         (precio  14)
+    )
+
+    ([Pad_Thai_Vegano] of Segundo
+         (es_de_categoria  [Cat_Vegetariano])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Tofu])
+         (complejidad  3)
+         (nombre  "Pad Thai Vegano")
+         (pesadez  0.6)
+         (precio  11)
     )
 
     ([Pan] of Ingrediente
@@ -637,10 +899,30 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  8)
     )
 
+    ([Pasta_e_fagioli] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Italiano] [Mediterraneo])
+         (tiene  [Pasta] [Tomate])
+         (complejidad  2)
+         (nombre  "Pasta e fagioli")
+         (pesadez  0.6)
+         (precio  7)
+    )
+
     ([Pasta_y_pescado] of Template_Menu
          (primer_plato_t  [Cat_Pasta])
          (segundo_plato_t  [Cat_Pescado])
          (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Pato_Lacado] of Segundo
+         (es_de_categoria  [Cat_Carne])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Cerdo] [Miel])
+         (complejidad  4)
+         (nombre  "Pato Lacado")
+         (pesadez  0.8)
+         (precio  20)
     )
 
     ([Pescado] of Ingrediente
@@ -653,6 +935,20 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (complejidad  3)
          (nombre  "Pescado al Horno")
          (precio  6)
+    )
+
+    ([Piña] of Ingrediente
+         (nombre  "Piña")
+    )
+
+    ([Piña_asada] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Asiatico] [Tailandes])
+         (tiene  [Piña])
+         (complejidad  2)
+         (nombre  "Piña asada")
+         (pesadez  0.5)
+         (precio  5)
     )
 
     ([Pollo] of Ingrediente
@@ -675,13 +971,51 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Queso")
     )
 
+    ([Risotto_al_Tartufo] of Segundo
+         (es_de_categoria  [Cat_Arroz])
+         (es_de_estilo  [Italiano])
+         (tiene  [Arroz] [Queso])
+         (complejidad  4)
+         (nombre  "Risotto al Tartufo")
+         (pesadez  0.7)
+         (precio  18)
+    )
+
+    ([Risotto_de_setas] of Primero
+         (es_de_categoria  [Cat_Arroz])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Setas])
+         (complejidad  3)
+         (nombre  "Risotto de setas")
+         (pesadez  0.7)
+         (precio  10)
+    )
+
     ([Romero] of Ingrediente
          (nombre  "Romero")
+    )
+
+    ([Salmón] of Ingrediente
+         (nombre  "Salmón")
+    )
+
+    ([Salmón_a_la_plancha] of Segundo
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Frances] [Mediterraneo])
+         (tiene  [Limon] [Salmón])
+         (complejidad  2)
+         (nombre  "Salmón a la plancha")
+         (pesadez  0.6)
+         (precio  12)
     )
 
     ([Salsa_de_tomate] of Ingrediente
          (es_compuesto_de  [Tomate])
          (nombre  "Salsa de tomate")
+    )
+
+    ([Setas] of Ingrediente
+         (nombre  "Setas")
     )
 
     ([Sopa_de_cebolla] of Primero
@@ -694,6 +1028,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  7)
     )
 
+    ([Sopa_de_fideos] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Pasta] [Verduras])
+         (complejidad  2)
+         (nombre  "Sopa de fideos")
+         (pesadez  0.4)
+         (precio  6)
+    )
+
     ([Sopa_de_miso] of Primero
          (es_de_categoria  [Cat_Sopa])
          (es_de_estilo  [Asiatico])
@@ -702,6 +1046,56 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Sopa de miso")
          (pesadez  0.4)
          (precio  5)
+    )
+
+    ([Sopa_de_pescado] of Primero
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Espanol] [Mediterraneo])
+         (tiene  [Pescado] [Tomate])
+         (complejidad  3)
+         (nombre  "Sopa de pescado")
+         (pesadez  0.6)
+         (precio  12)
+    )
+
+    ([Sopa_de_wakame] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Alga] [Tofu])
+         (complejidad  1)
+         (nombre  "Sopa de wakame")
+         (pesadez  0.3)
+         (precio  5)
+    )
+
+    ([Spaghetti_alle_vongole] of Segundo
+         (es_de_categoria  [Cat_Marisco])
+         (es_de_estilo  [Italiano])
+         (tiene  [Almejas] [Pasta])
+         (complejidad  3)
+         (nombre  "Spaghetti alle vongole")
+         (pesadez  0.7)
+         (precio  16)
+    )
+
+    ([Stracciatella] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Italiano] [Mediterraneo])
+         (tiene  [Huevo] [Queso])
+         (complejidad  1)
+         (nombre  "Stracciatella")
+         (pesadez  0.4)
+         (precio  6)
+    )
+
+    ([Sushi_de_Salmón] of Segundo
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Salmón])
+         (complejidad  4)
+         (nombre  "Sushi de Salmón")
+         (pesadez  0.5)
+         (precio  16)
     )
 
     ([Tacos_vegetarianos] of Segundo
@@ -720,8 +1114,39 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Tailandes")
     )
 
+    ([Tarta_de_queso] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Espanol] [Frances] [Italiano] [Mediterraneo])
+         (tiene  [Azucar] [Huevo] [Queso])
+         (complejidad  3)
+         (nombre  "Tarta de queso")
+         (pesadez  0.8)
+         (precio  7)
+    )
+
+    ([Tartar_de_atun] of Primero
+         (es_de_categoria  [Cat_Pescado])
+         (es_de_estilo  [Frances])
+         (tiene  [Aguacate] [Atun])
+         (complejidad  2)
+         (nombre  "Tartar de atún")
+         (pesadez  0.5)
+         (precio  14)
+    )
+
+    ([Tempura_de_Verduras] of Primero
+         (es_de_categoria  [Cat_Vegetariano])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Verduras])
+         (complejidad  2)
+         (nombre  "Tempura de Verduras")
+         (pesadez  0.5)
+         (precio  9)
+    )
+
     ([Tiramisu] of Postre
          (es_de_categoria  [Cat_Dulce] [Cat_Pastel])
+         (es_de_estilo  [Italiano])
          (tiene  [Cafe] [Chocolate] [Queso])
          (complejidad  3)
          (nombre  "Tiramisu")
@@ -734,9 +1159,23 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Tofu")
     )
 
+    ([Tom_yum] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Chile] [Leche_de_coco])
+         (complejidad  3)
+         (nombre  "Tom yum")
+         (pesadez  0.5)
+         (precio  7)
+    )
+
     ([Tomate] of Ingrediente
          (nombre  "Tomate")
          (temporada  "otono" "verano")
+    )
+
+    ([Te_Verde] of Ingrediente
+         (nombre  "Te Verde")
     )
 
     ([Uva] of Ingrediente
@@ -769,6 +1208,176 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Vino Tinto")
          (pesadez  0.5)
          (precio  6)
+    )
+
+    ([Zuppa_di_Pesce] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Italiano])
+         (tiene  [Pescado] [Tomate])
+         (complejidad  2)
+         (nombre  "Zuppa di Pesce")
+         (pesadez  0.6)
+         (precio  12)
+    )
+
+    ([Pasta_Carbonara_Sin_Gluten] of Primero
+         (es_de_categoria  [Cat_Pasta_Sin_Glutten])
+         (es_de_estilo  [Italiano])
+         (tiene  [Huevo] [Queso])
+         (complejidad  2)
+         (nombre  "Carbonara Sin Gluten")
+         (pesadez  0.6)
+         (precio  10)
+    )
+
+    ([Minestrone_Sin_Gluten] of Primero
+         (es_de_categoria  [Cat_Pasta_Sin_Glutten])
+         (es_de_estilo  [Italiano] [Mediterraneo])
+         (tiene  [Tomate] [Verduras])
+         (complejidad  2)
+         (nombre  "Minestrone Sin Gluten")
+         (pesadez  0.5)
+         (precio  7)
+    )
+
+    ([Vongole_Sin_Gluten] of Segundo
+         (es_de_categoria  [Cat_Pasta_Sin_Glutten])
+         (es_de_estilo  [Italiano])
+         (tiene  [Almejas] [Aceite] [Ajo])
+         (complejidad  2)
+         (nombre  "Vongole Sin Gluten")
+         (pesadez  0.5)
+         (precio  13)
+    )
+
+    ([Fagioli_Sin_Gluten] of Primero
+         (es_de_categoria  [Cat_Pasta_Sin_Glutten])
+         (es_de_estilo  [Italiano])
+         (tiene  [Tomate] [Alubias])
+         (complejidad  1)
+         (nombre  "Fagioli Sin Gluten")
+         (pesadez  0.4)
+         (precio  6)
+    )
+
+    ([Mochi_TeVerde] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz_glutinoso] [Te_Verde] [Azucar])
+         (complejidad  2)
+         (nombre  "Mochi de Té Verde")
+         (pesadez  0.4)
+         (precio  8)
+    )
+
+    ([Zuppa_di_Pomodoro] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Italiano])
+         (tiene  [Tomate] [Cebolla] [Albahaca])
+         (complejidad  1)
+         (nombre  "Zuppa di Pomodoro")
+         (pesadez  0.4)
+         (precio  4)
+    )
+
+    ([Insalata_di_Rucola] of Primero
+         (es_de_categoria  [Cat_Ensalada])
+         (es_de_estilo  [Italiano])
+         (tiene  [Lechuga] [Tomate] [Aceite])
+         (complejidad  1)
+         (nombre  "Insalata Verde")
+         (pesadez  0.3)
+         (precio  5)
+    )
+
+    ([Bruschetta_al_Pomodoro] of Primero
+         (es_de_categoria  [Cat_Ensalada])
+         (es_de_estilo  [Italiano])
+         (tiene  [Pan] [Tomate] [Albahaca])
+         (complejidad  1)
+         (nombre  "Bruschetta al Pomodoro")
+         (pesadez  0.4)
+         (precio  4)
+    )
+
+    ([Polpette_di_Verdure] of Segundo
+         (es_de_categoria  [Cat_Vegetariano])
+         (es_de_estilo  [Italiano])
+         (tiene  [Verduras] [Huevo] [Queso])
+         (complejidad  2)
+         (nombre  "Polpette di Verdure")
+         (pesadez  0.6)
+         (precio  5)
+    )
+
+    ([Pollo_al_Limone] of Segundo
+         (es_de_categoria  [Cat_Carne])
+         (es_de_estilo  [Italiano])
+         (tiene  [Pollo] [Limon] [Romero])
+         (complejidad  2)
+         (nombre  "Pollo al Limone")
+         (pesadez  0.5)
+         (precio  6)
+    )
+
+    ([Frittata_di_Zucchine] of Segundo
+         (es_de_categoria  [Cat_Vegetariano])
+         (es_de_estilo  [Italiano])
+         (tiene  [Huevo] [Verduras])
+         (complejidad  1)
+         (nombre  "Frittata di Verdure")
+         (pesadez  0.5)
+         (precio  5)
+    )
+
+    ([Panna_Cotta_Semplice] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Italiano])
+         (tiene  [Crema] [Azucar])
+         (complejidad  2)
+         (nombre  "Panna Cotta")
+         (pesadez  0.6)
+         (precio  4)
+    )
+
+    ([Macedonia_di_Frutta] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Italiano])
+         (tiene  [Melon] [Uva])
+         (complejidad  1)
+         (nombre  "Macedonia")
+         (pesadez  0.3)
+         (precio  3)
+    )
+
+    ([Cantucci_Senza_Glutine] of Postre
+         (es_de_categoria  [Cat_Dulce])
+         (es_de_estilo  [Italiano])
+         (tiene  [Almendra] [Azucar])
+         (complejidad  1)
+         (nombre  "Cantucci (GF)")
+         (pesadez  0.4)
+         (precio  6)
+    )
+
+    ([Pastel_Luna_Asiatico] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Mango] [Coco] [Azucar])
+         (complejidad  3)
+         (nombre  "Pastel de Luna (Mango-Coco)")
+         (pesadez  0.6)
+         (precio  12)
+    )
+
+    ([Tarta_Coco_Vapor] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Leche_de_coco] [Arroz_glutinoso] [Huevo])
+         (complejidad  2)
+         (nombre  "Khanom Chan Tailandés")
+         (pesadez  0.5)
+         (precio  7)
     )
 
 )
