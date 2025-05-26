@@ -1808,6 +1808,87 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                 :pesadez 0.6 ;
                 :precio 12 .
 
+:Acqua_e_Erbe rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Sopa ;
+    :es_de_estilo :Italiano ;
+    :tiene :Agua , :Albahaca ;
+    :complejidad 0 ;
+    :nombre "Acqua con Hierbas" ;
+    :pesadez 0.1 ;
+    :precio 0.5 .
+
+:Pomodoro_Crudo rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Ensalada ;
+    :es_de_estilo :Italiano ;
+    :tiene :Tomate ;
+    :complejidad 0 ;
+    :nombre "Pomodoro Crudo" ;
+    :pesadez 0.2 ;
+    :precio 1 .
+
+:Pane_Secco rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Ensalada ;
+    :es_de_estilo :Italiano ;
+    :tiene :Pan ;
+    :complejidad 0 ;
+    :nombre "Pane Raffermo" ;
+    :pesadez 0.3 ;
+    :precio 0.8 .
+
+:Uovo_Sodo rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Italiano ;
+    :tiene :Huevo ;
+    :complejidad 1 ;
+    :nombre "Uovo Sodo" ;
+    :pesadez 0.4 ;
+    :precio 1 .
+
+:Verdure_Bollite rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Italiano ;
+    :tiene :Verduras ;
+    :complejidad 1 ;
+    :nombre "Verdure Bollite" ;
+    :pesadez 0.3 ;
+    :precio 1.2 .
+
+:Aglio_Olio_Fantasma rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+    :es_de_estilo :Italiano ;
+    :tiene :Aceite ;  # Concept: "Ghost garlic" = oil residue
+    :complejidad 0 ;
+    :nombre "Aglio e Olio (Fantasma)" ;
+    :pesadez 0.1 ;
+    :precio 0.9 .
+
+:Cubo_di_Zucchero rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Pastel ;
+    :es_de_estilo :Italiano ;
+    :tiene :Azucar ;
+    :complejidad 0 ;
+    :nombre "Dolce Aria" ;
+    :pesadez 0.1 ;
+    :precio 0.5 .
+
+:Limone_Candito rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Dulce ;
+    :es_de_estilo :Italiano ;
+    :tiene :Limon , :Azucar ;
+    :complejidad 1 ;
+    :nombre "Bucce di Limone" ;
+    :pesadez 0.2 ;
+    :precio 1.5 .
+
+:Acqua_Aromatica rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Bebida ;
+    :es_de_estilo :Italiano ;
+    :tiene :Agua , :Albahaca ;
+    :complejidad 0 ;
+    :nombre "Acqua Profumata" ;
+    :pesadez 0 ;
+    :precio 0.3 .
+
 ### Pasta Carbonara Variant
 :Pasta_Carbonara_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
     :es_de_categoria :Cat_Pasta_Sin_Glutten ;
