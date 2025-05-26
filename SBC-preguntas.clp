@@ -10,7 +10,8 @@
 ;; y se almacenan las respuestas en la base de conocimiento como el problema concreto.
 
 ;; Definimos los tipos de preguntas
-(deffunction ask-question-with-values (?question $?allowed-values)
+(deffunction ask-question-with-values
+ (?question $?allowed-values)
     (print ?question)
     (bind ?answer (read))
     (if (lexemep ?answer) 
@@ -36,11 +37,13 @@
 (multislot nombres (type STRING))
 )
 (defrule generar-lista-estilos
+"Obtenemos la lista de estilos de cocina disponibles."
     ""(declare (salience 150))
 	(not (lista-estilos)) =>
 	(assert (lista-estilos (estilos (find-all-instances ((?e Estilo)) TRUE))))
 )
 (defrule generar-lista-nombres-estilos
+"Obtenemos la lista de nombres de estilos de cocina disponibles."
     ""(declare (salience 125))
 	?l <- (lista-estilos (estilos $?estilos))
 	(not (lista-nombres-estilos)) =>
@@ -58,6 +61,7 @@
 )
 ;;
 (deffunction ask-estilo ($?allowed-values)
+	"Solicitamos al usuario que elija un estilo de cocina de la lista de estilos disponibles."
 	(print "¿Qué estilo de cocina quiere? (Introduzca el número)")
 	(print crlf)
 	(print "Estilos disponibles:")
@@ -82,11 +86,13 @@
 (multislot nombres (type STRING))
 )
 (defrule generar-lista-eventos
+"Obtenemos la lista de eventos disponibles."
     ""(declare (salience 150))
 	(not (lista-eventos)) =>
 	(assert (lista-eventos (eventos (find-all-instances ((?e Tipo_Evento)) TRUE))))
 )
 (defrule generar-lista-nombres-eventos
+"Obtenemos la lista de nombres de eventos disponibles."
     ""(declare (salience 125))
 	?l <- (lista-eventos (eventos $?eventos))
 	(not (lista-nombres-eventos)) =>
@@ -128,13 +134,15 @@
 (multislot restricciones)
 )
 (defrule generar-lista-restricciones-posibles
-    ""(declare (salience 150))
+"Obtenemos la lista de restricciones posibles."
+	(declare (salience 150))
 	(not (lista-restricciones-posibles)) =>
 	(assert (lista-restricciones-posibles (restricciones (find-all-instances ((?e Restriccion)) TRUE))))
 )
 
 ;; Realizamos las preguntas al usuario y almacenamos las respuestas en hechos separados
 (defrule determinar-estilo-de-cocina
+"Esta regla determina el estilo de cocina a partir de una lista de estilos disponibles."
     (declare (salience 98)) 
 	?l <- (lista-nombres-estilos (nombres $?nombres))
 	(not (estilo-de-cocina))
@@ -144,6 +152,7 @@
 )
 
 (defrule determinar-tipo-de-evento
+"Esta regla determina el tipo de evento a partir de una lista de eventos disponibles."
     (declare (salience 97)) 
 	?l <- (lista-nombres-eventos (nombres $?nombres))
 	(not (tipo-de-evento))
@@ -153,6 +162,7 @@
 )
 
 (defrule determinar-restricciones-activas
+"Esta regla determina las restricciones activas a partir de una lista de restricciones posibles."
     (declare (salience 96)) 
 	(not (restricciones-activas))
 	?l <- (lista-restricciones-posibles (restricciones $?restricciones-posibles))
@@ -172,6 +182,7 @@
 )
 
 (defrule determinar-comensales
+"Esta regla determina el número de comensales a partir de una pregunta al usuario."
 	""(declare (salience 95))
 	(not (comensales)) =>
 	(assert (comensales 
@@ -180,6 +191,7 @@
 )
 
 (defrule determinar-bebida
+"Esta regla determina si el menú debe incluir bebida o no a partir de una pregunta al usuario."
     (declare (salience 90)) 
 	(not (menu-con-bebida)) =>
 	(bind ?answer (ask-question-with-values "¿Debería el menú incluir bebida? (Y/N): " y n))
@@ -187,6 +199,7 @@
 )
 
 (defrule determinar-precio-minimo-menu
+"Esta regla determina el presupuesto mínimo por persona a partir de una pregunta al usuario."
     (declare (salience 80)) 
 	(not (precio-minimo-menu)) =>
 	(assert (precio-minimo-menu 
@@ -195,6 +208,7 @@
 )
 
 (defrule determinar-precio-maximo-menu
+"Esta regla determina el presupuesto máximo por persona a partir de una pregunta al usuario."
     (declare (salience 70)) 
 	(not (precio-maximo-menu)) =>
 	(assert (precio-maximo-menu 
@@ -214,6 +228,7 @@
 )
 ;; Y los unificamos en un solo hecho que representa el problema concreto
 (defrule crear-problema-concreto
+"Esta regla crea un hecho que representa el problema concreto a partir de los hechos individuales. Cosa que nos permite ser más modulares al dividir el trabajo."
     ?es <- (estilo-de-cocina ?estilo)
     ?ev <- (tipo-de-evento ?evento)
     ?c <- (comensales ?comensales)

@@ -15,6 +15,7 @@
 
 ;; En este archivo se definen las reglas para refinar la solución utilizando datos del problema concreto.
 (defrule find-plato-de-estilo-sin-bebida
+"Esta regla encuentra un plato de un estilo concreto sin incluir bebida. En el rango de precios indicado."
     (problema-concreto (estilo ?estilo) (comensales ?s) (incluir-bebida ?b) (presupuesto-minimo ?min) (presupuesto-maximo ?max))
 	(test (not (eq ?b TRUE)))
 	?t <- (object (is-a Template_Escogido))
@@ -41,6 +42,7 @@
 )
 
 (defrule find-plato-de-estilo-con-bebida
+"Esta regla encuentra un plato de un estilo concreto incluyendo bebida. En el rango de precios indicado."
     (problema-concreto (estilo ?estilo) (comensales ?s) (incluir-bebida ?b) (presupuesto-minimo ?min) (presupuesto-maximo ?max))
 	(test (eq ?b TRUE))
 	?t <- (object (is-a Template_Escogido))

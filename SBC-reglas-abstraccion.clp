@@ -20,6 +20,7 @@
    (slot categoria))
 
 (defrule clasificar-grupo
+"Esta regla clasifica el tamaño del grupo de comensales en categorías como solo, pequeño, mediano, grande, enorme o mass catering."
    ?g <- (problema-concreto (comensales ?s))
    =>
    (if (< ?s 2)
@@ -51,6 +52,7 @@
   (slot nombre-estilo))
 
 (defrule clasificar-estilo
+"Esta regla clasifica el estilo de cocina del menú concreto."
   (problema-concreto (estilo ?e))
   =>
   (assert (estilo-activo (nombre-estilo ?e))))
@@ -63,6 +65,7 @@
     (slot maximo))
 
 (defrule clasificar-rango-precio
+"Esta regla clasifica el rango de precios del menú concreto en categorías económicas, normales o caras."
     (problema-concreto (presupuesto-minimo ?min) (presupuesto-maximo ?max))
     =>
     (bind $?categorias (create$))
@@ -95,6 +98,7 @@
     (slot nombre-evento))
 
 (defrule clasificar-evento
+"Esta regla clasifica el evento concreto en un tipo y nombre de evento."
     (problema-concreto (evento ?e))
     =>
     (if (eq ?e "Boda") then
@@ -123,6 +127,7 @@
 )
 
 (defrule crear-problema-abstracto
+"Esta regla crea un problema abstracto a partir de las clasificaciones y restricciones del problema concreto. Cosa que nos permite ser más modulares al dividir el trabajo."
    ?cg <- (clasificacion-grupo (categoria ?grupo))
    ?ea <- (estilo-activo (nombre-estilo ?estilo))
    (problema-concreto (restricciones $?restricciones))

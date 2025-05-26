@@ -55,13 +55,14 @@
 	(not (complejidad-maxima))
 	(problema-abstracto (clasificacion-grupo ?grupo))
 	=>
-	(if (eq ?grupo mediano) then (assert (complejidad-maxima (maximo 4))))
-	(if (eq ?grupo grande) then (assert (complejidad-maxima (maximo 3))))
-	(if (eq ?grupo enorme) then (assert (complejidad-maxima (maximo 2))))
+	(if (eq ?grupo mediano) then (assert (complejidad-maxima (maximo 5))))
+	(if (eq ?grupo grande) then (assert (complejidad-maxima (maximo 4))))
+	(if (eq ?grupo enorme) then (assert (complejidad-maxima (maximo 3))))
 	(if (eq ?grupo mass-catering) then (assert (complejidad-maxima (maximo 2))))
 )
 
 (defrule eliminar-platos-complejos
+"Esta regla elimina los platos cuya complejidad es mayor que la complejidad máxima permitida."
 	(complejidad-maxima (maximo ?cm))
 	?plato <- (object 
         (is-a Plato)
@@ -71,6 +72,7 @@
 )
 
 (defrule primer-plato-celiaco
+"Esta regla adapta el primer plato del menú si el cliente tiene celiaquía. Por restricciones de tiempo no hemos podido hacerlo dinamico aunque se podría hacer utilizando de la restriccion la categoria recomendada."
     (declare (salience 200))
 	(problema-abstracto (restricciones-activas $?restricciones))
 	?t <- (object 
@@ -87,6 +89,7 @@
 )
 
 (defrule segundo-plato-celiaco
+"Esta regla adapta el segundo plato del menú si el cliente tiene celiaquía."
     (declare (salience 200))
 	(problema-abstracto (restricciones-activas $?restricciones))
 	?t <- (object 
@@ -103,6 +106,7 @@
 )
 
 (defrule tercer-plato-celiaco
+"Esta regla adapta el tercer plato del menú si el cliente tiene celiaquía."
     (declare (salience 200))
 	(problema-abstracto (restricciones-activas $?restricciones))
 	?t <- (object 
@@ -119,8 +123,10 @@
 )
 
 (defrule forzar-pastel
+"Esta regla fuerza el tercer plato a ser un pastel si el evento es una boda o un cumpleaños infantil."
     (declare (salience 200))
-	(or (problema-abstracto (nombre-evento "Boda")) (problema-abstracto (nombre-evento "Cumpleaños Infantil")))
+	(or (problema-abstracto (nombre-evento "Boda")) 
+    (problema-abstracto (nombre-evento "Cumpleaños Infantil")))
 	?t <- (object 
         (is-a Template_Escogido))
 	(test (not (eq (send ?t get-tercer_plato_t) [Cat_Pastel])))
@@ -135,6 +141,7 @@
 )
 
 (defrule eliminar-alcohol
+"Esta regla elimina los platos que contienen alcohol si el evento es un cumpleaños infantil o si la restricción No-Alcoholico está activa."
     (declare (salience 200))
 	(or
 		(and (problema-abstracto (restricciones-activas $?restricciones))
