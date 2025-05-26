@@ -113,7 +113,7 @@
 	(while (<= ?i (length$ ?allowed-values))
 	do
 	(bind ?e (nth$ ?i ?allowed-values))
-	(printout t ?e crlf)
+	(printout t ?i ". " ?e crlf)
 	(bind ?i (+ ?i 1))
 	)
 

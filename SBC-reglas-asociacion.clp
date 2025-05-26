@@ -133,3 +133,19 @@
     )
 	(unmake-instance ?t)
 )
+
+(defrule eliminar-alcohol
+    (declare (salience 200))
+	(or
+		(and (problema-abstracto (restricciones-activas $?restricciones))
+		(test (member$ [No-Alcoholico] ?restricciones)))
+		
+		(problema-abstracto (nombre-evento "Cumpleaños Infantil"))
+	)
+    ?plato <- (object 
+        (is-a Plato))
+	(test (member$ [Alcohol] (send ?plato get-tiene)))
+	=>
+	(unmake-instance ?plato)
+)
+

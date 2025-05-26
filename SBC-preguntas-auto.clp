@@ -3,7 +3,7 @@
 	
 	(assert (estilo-de-cocina "Mediterraneo"))
 	(assert (comensales 6))
-	(assert (tipo-de-evento "Boda"))
+	(assert (tipo-de-evento "Cumpleaños Infantil"))
 	(assert (menu-con-bebida TRUE))
 	(assert (precio-minimo-menu 12))
 	(assert (precio-maximo-menu 22))
