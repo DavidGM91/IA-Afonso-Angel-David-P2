@@ -612,8 +612,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cebolla
-:Cebolla rdf:type owl:NamedIndividual .
-
+:Cebolla rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Cebolla" .
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cena_de_gala
 :Cena_de_gala rdf:type owl:NamedIndividual ,
