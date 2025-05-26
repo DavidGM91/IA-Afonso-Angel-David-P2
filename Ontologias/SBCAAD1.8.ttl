@@ -1806,6 +1806,45 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                 :pesadez 0.6 ;
                 :precio 12 .
 
+### Pasta Carbonara Variant
+:Pasta_Carbonara_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+    :es_de_estilo :Italiano ;
+    :tiene :Huevo , :Queso ;
+    :complejidad 2 ;
+    :nombre "Carbonara Sin Gluten" ;
+    :pesadez 0.6 ;
+    :precio 10 .
+
+### Minestrone Variant
+:Minestrone_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+    :es_de_estilo :Italiano , :Mediterraneo ;
+    :tiene :Tomate , :Verduras ;
+    :complejidad 2 ;
+    :nombre "Minestrone Sin Gluten" ;
+    :pesadez 0.5 ;
+    :precio 7 .
+
+### Spaghetti alle Vongole Variant
+:Vongole_Sin_Gluten rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+    :es_de_estilo :Italiano ;
+    :tiene :Almejas , :Aceite , :Ajo ;
+    :complejidad 2 ;
+    :nombre "Vongole Sin Gluten" ;
+    :pesadez 0.5 ;
+    :precio 13 .
+
+### Pasta e Fagioli Variant
+:Fagioli_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+    :es_de_estilo :Italiano ;
+    :tiene :Tomate , :Alubias ;
+    :complejidad 1 ;
+    :nombre "Fagioli Sin Gluten" ;
+    :pesadez 0.4 ;
+    :precio 6 .
 
 #################################################################
 #    General axioms
