@@ -528,7 +528,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                   :tiene :Limon ,
                          :Merluza ;
                   :complejidad 3 ;
-                  :nombre Pescado al Horno ;
+                  :nombre "Pescado al Horno" ;
                   :precio 6 .
 
 
