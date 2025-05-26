@@ -104,7 +104,26 @@
   (assert (clasificacion-restricciones (nombres-restricciones ?nombres)))
 )
 
+;; Tipo Evento 
+(deftemplate clasificacion-evento
+    (slot tipo)
+    (slot nombre-evento))
 
+(defrule clasificar-evento
+    (problema-concreto (evento ?e))
+    =>
+    (if (eq ?e "boda") then
+        (assert (clasificacion-evento
+            (tipo "formal")
+            (nombre-evento ?e)
+        ))
+    else if (eq ?e "cumpleaños") then
+        (assert (clasificacion-evento
+            (tipo "informal")
+            (nombre-evento ?e)
+        ))
+    )
+)
 
 ;;Unificationss
 
@@ -114,6 +133,8 @@
     (multislot restricciones-activas)
     (multislot categorias-precio)
     (slot incluir-bebida)
+    (slot tipo-evento)
+    (slot nombre-evento)
 )
 
 (defrule crear-problema-abstracto
@@ -122,6 +143,7 @@
    ?cr <- (clasificacion-restricciones (nombres-restricciones $?restricciones))
    ?cp <- (clasificacion-rango-precio (categorias $?categorias-precio))
    ?b <- (problema-concreto (incluir-bebida ?bebida))
+   ?ce <- (clasificacion-evento (tipo ?tipo-evento) (nombre-evento ?nombre-evento))
    =>
    (assert (problema-abstracto
       (clasificacion-grupo ?grupo)
@@ -129,7 +151,9 @@
       (restricciones-activas ?restricciones)
       (categorias-precio $?categorias-precio)
       (incluir-bebida ?bebida)
+      (tipo-evento ?tipo-evento)
+      (nombre-evento ?nombre-evento)
    ))
-   (retract ?cg ?ea ?cr ?cp)
+   (retract ?cg ?ea ?cr ?cp ?ce)
 )
 
