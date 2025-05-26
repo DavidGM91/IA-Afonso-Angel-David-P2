@@ -1580,8 +1580,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
           :nombre "Tiramisu" ,
                   "Tiramisú" ;
           :pesadez 0.8 ;
-          :precio 5 ,
-                  7 .
+          :precio 5 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tofu
