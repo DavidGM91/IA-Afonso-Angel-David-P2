@@ -1,9 +1,9 @@
 (defrule preguntas-auto
     ""(declare (salience 300)) =>
 	
-	(assert (estilo-de-cocina italiano))
+	(assert (estilo-de-cocina "Mediterraneo"))
 	(assert (comensales 6))
-	(assert (tipo-de-evento boda))
+	(assert (tipo-de-evento "Boda"))
 	(assert (menu-con-bebida TRUE))
 	(assert (precio-minimo-menu 12))
 	(assert (precio-maximo-menu 22))

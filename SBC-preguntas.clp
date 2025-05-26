@@ -58,7 +58,7 @@
 )
 ;;
 (deffunction ask-estilo ($?allowed-values)
-	(print "¿Qué estilo de cocina quieres?")
+	(print "¿Qué estilo de cocina quiere? (Introduzca el número)")
 	(print crlf)
 	(print "Estilos disponibles:")
 	(print crlf)
@@ -67,7 +67,7 @@
 	(while (<= ?i (length$ ?allowed-values))
 	do
 	(bind ?e (nth$ ?i ?allowed-values))
-	(printout t ?e crlf)
+	(printout t ?i ". " ?e crlf)
 	(bind ?i (+ ?i 1))
 	)
 
@@ -104,7 +104,7 @@
 )
 ;;
 (deffunction ask-evento ($?allowed-values)
-	(print "¿Qué tipo de evento se celebrará?")
+	(print "¿Qué tipo de evento se celebrará? (Introduzca el número)")
 	(print crlf)
 	(print "Eventos disponibles:")
 	(print crlf)
@@ -138,8 +138,9 @@
     (declare (salience 98)) 
 	?l <- (lista-nombres-estilos (nombres $?nombres))
 	(not (estilo-de-cocina))
-	=> 
-    (assert (estilo-de-cocina (ask-estilo ?nombres)))
+	=>
+	(bind ?i (ask-estilo ?nombres))
+    (assert (estilo-de-cocina (nth$ ?i $?nombres)))
 )
 
 (defrule determinar-tipo-de-evento
@@ -147,7 +148,8 @@
 	?l <- (lista-nombres-eventos (nombres $?nombres))
 	(not (tipo-de-evento))
 	=> 
-    (assert (tipo-de-evento (ask-evento ?nombres)))
+	(bind ?i (ask-evento ?nombres))
+    (assert (tipo-de-evento (nth$ ?i $?nombres)))
 )
 
 (defrule determinar-restricciones-activas

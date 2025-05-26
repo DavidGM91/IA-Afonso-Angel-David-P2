@@ -89,21 +89,6 @@
     ))
 )
 
-
-;; Restricciones Activas
-(deftemplate clasificacion-restricciones
-  (multislot nombres-restricciones))
-
-(defrule clasificar-restricciones
-  ?lr <- (problema-concreto (restricciones $?restricciones))
-  =>
-  (bind $?nombres (create$))
-  (foreach ?r ?restricciones
-    (bind $?nombres (create$ $?nombres (send ?r get-nombre)))
-  )
-  (assert (clasificacion-restricciones (nombres-restricciones ?nombres)))
-)
-
 ;; Tipo Evento 
 (deftemplate clasificacion-evento
     (slot tipo)
@@ -112,12 +97,12 @@
 (defrule clasificar-evento
     (problema-concreto (evento ?e))
     =>
-    (if (eq ?e boda) then
+    (if (eq ?e "Boda") then
         (assert (clasificacion-evento
             (tipo formal)
             (nombre-evento ?e)
         ))
-    else if (eq ?e cumpleaños) then
+    else if (eq ?e "Cumpleaños Infantil") then
         (assert (clasificacion-evento
             (tipo informal)
             (nombre-evento ?e)
@@ -140,9 +125,9 @@
 (defrule crear-problema-abstracto
    ?cg <- (clasificacion-grupo (categoria ?grupo))
    ?ea <- (estilo-activo (nombre-estilo ?estilo))
-   ?cr <- (clasificacion-restricciones (nombres-restricciones $?restricciones))
+   (problema-concreto (restricciones $?restricciones))
    ?cp <- (clasificacion-rango-precio (categorias $?categorias-precio))
-   ?b <- (problema-concreto (incluir-bebida ?bebida))
+   (problema-concreto (incluir-bebida ?bebida))
    ?ce <- (clasificacion-evento (tipo ?tipo-evento) (nombre-evento ?nombre-evento))
    =>
    (assert (problema-abstracto
@@ -154,6 +139,6 @@
       (tipo-evento ?tipo-evento)
       (nombre-evento ?nombre-evento)
    ))
-   (retract ?cg ?ea ?cr ?cp ?ce)
+   (retract ?cg ?ea ?cp ?ce)
 )
 
