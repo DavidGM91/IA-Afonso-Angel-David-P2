@@ -1055,7 +1055,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                  :es_de_categoria :Cat_Dulce ;
                  :es_de_estilo :Asiatico ;
                  :tiene :Queso ,
-                        :Té_Verde ;
+                        :Te_Verde ;
                  :complejidad 3 ;
                  :nombre "Matcha Tiramisú" ;
                  :pesadez 0.6 ;
@@ -1735,7 +1735,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Té_Verde
-:Té_Verde rdf:type owl:NamedIndividual .
+:Te_Verde rdf:type owl:NamedIndividual ,
+              :Ingrediente ;
+     :nombre "Te Verde" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Uva
