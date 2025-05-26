@@ -768,7 +768,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Curry
-:Curry rdf:type owl:NamedIndividual .
+:Curry rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Curry" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Ensalada_Caprese
