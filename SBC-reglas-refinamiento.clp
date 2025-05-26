@@ -28,7 +28,7 @@
     ?postre <- (object (is-a Postre))
 	(test (member$ (send ?t get-tercer_plato_t) (send ?postre get-es_de_categoria)))
 	(test (member$ ?estilo (send ?postre get-es_de_estilo)))
-	(test (> (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) ?min))
+	(test (> (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (* ?min (send ?t get-multiplicador-precio-min))))
 	(test (< (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (* ?max (send ?t get-multiplicador-precio-max))))
     =>
     (bind ?precio (+ (+ 
@@ -60,7 +60,7 @@
 	(test (member$ ?estilo (send ?postre get-es_de_estilo)))
     ?bebida <- (object (is-a Bebida))
 	(test (member$ ?estilo (send ?bebida get-es_de_estilo)))
-	(test (> (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)) ?min))
+	(test (> (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)) (* ?min (send ?t get-multiplicador-precio-min))))
 	(test (< (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)) (* ?max (send ?t get-multiplicador-precio-max))))
     =>
     (bind ?precio (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)))
