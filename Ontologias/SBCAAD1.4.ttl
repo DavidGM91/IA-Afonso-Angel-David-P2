@@ -806,6 +806,97 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
       :pesadez 0.5 ;
       :precio 6 .
 
+### Template for Asiatico style
+:Menu_Asiatico rdf:type owl:NamedIndividual ,
+                        :Template_Menu ;
+               :primer_plato_t :Cat_Sopa ;
+               :segundo_plato_t :Cat_Arroz ;
+               :tercer_plato_t :Cat_Dulce .
+
+### Template for Espanol style
+:Menu_Espanol rdf:type owl:NamedIndividual ,
+                       :Template_Menu ;
+              :primer_plato_t :Cat_Ensalada ;
+              :segundo_plato_t :Cat_Carne ;
+              :tercer_plato_t :Cat_Dulce .
+
+### Template for Tailandes style
+:Menu_Tailandes rdf:type owl:NamedIndividual ,
+                         :Template_Menu ;
+                :primer_plato_t :Cat_Sopa ;
+                :segundo_plato_t :Cat_Arroz ;
+                :tercer_plato_t :Cat_Fruta .
+
+### New categories needed for the templates
+:Cat_Sopa rdf:type owl:NamedIndividual ,
+                   :Categoria .
+
+:Cat_Arroz rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+:Cat_Fruta rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+### Update existing styles to include templates
+:Asiatico :tiene_template :Menu_Asiatico .
+
+:Espanol :tiene_template :Menu_Espanol .
+
+:Tailandes :tiene_template :Menu_Tailandes .
+
+### Example dishes for new categories
+:Sopa_de_miso rdf:type owl:NamedIndividual ,
+                       :Primero ;
+              :es_de_categoria :Cat_Sopa ;
+              :es_de_estilo :Asiatico ;
+              :tiene :Tofu ,
+                     :Alga ;
+              :complejidad 2 ;
+              :nombre "Sopa de miso" ;
+              :pesadez 0.4 ;
+              :precio 5 .
+
+:Arroz_frito rdf:type owl:NamedIndividual ,
+                      :Segundo ;
+             :es_de_categoria :Cat_Arroz ;
+             :es_de_estilo :Asiatico ;
+             :tiene :Arroz ,
+                    :Huevo ,
+                    :Verduras ;
+             :complejidad 3 ;
+             :nombre "Arroz frito" ;
+             :pesadez 0.6 ;
+             :precio 8 .
+
+:Fruta_fresca rdf:type owl:NamedIndividual ,
+                       :Postre ;
+              :es_de_categoria :Cat_Fruta ;
+              :es_de_estilo :Tailandes ;
+              :tiene :Mango ,
+                     :Coco ;
+              :complejidad 1 ;
+              :nombre "Fruta fresca" ;
+              :pesadez 0.3 ;
+              :precio 4 .
+
+### Additional ingredients needed
+:Alga rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Alga" .
+
+:Verduras rdf:type owl:NamedIndividual ,
+                   :Ingrediente ;
+          :nombre "Verduras" .
+
+:Mango rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Mango" .
+
+:Coco rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Coco" .
+
+
 
 #################################################################
 #    General axioms

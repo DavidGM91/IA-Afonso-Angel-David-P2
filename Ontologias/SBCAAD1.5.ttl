@@ -12,12 +12,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#ofrece_alternativa
-:ofrece_alternativa rdf:type owl:ObjectProperty ;
-                    rdfs:domain :Restriccion ;
-                    rdfs:range :Categoria .
-
-
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/barato
 :barato rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf owl:topObjectProperty ;
@@ -126,6 +120,12 @@
         rdfs:subPropertyOf owl:topObjectProperty ;
         rdfs:domain :Tipo_Evento ;
         rdfs:range :Restriccion .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/ofrece_alternativa
+:ofrece_alternativa rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Restriccion ;
+                    rdfs:range :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/primer_plato
@@ -363,30 +363,6 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Cat_Pasta_Sin_Glutten
-:Cat_Pasta_Sin_Glutten rdf:type owl:NamedIndividual ,
-                                :Categoria .
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Ninguno
-:Ninguno rdf:type owl:NamedIndividual ,
-                  :Tipo_Evento ;
-         :nombre "Ninguno" .
-
-
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Pasta_Carbonara_Sin_Glutten
-:Pasta_Carbonara_Sin_Glutten rdf:type owl:NamedIndividual ,
-                                      :Primero ;
-                             :es_de_categoria :Cat_Pasta_Sin_Glutten ;
-                             :es_de_estilo :Italiano ;
-                             :tiene :Huevo ,
-                                    :Queso ;
-                             :complejidad 3 ;
-                             :nombre "Pasta Carbonara Sin Glutten" ;
-                             :pesadez 0.7 ;
-                             :precio 8 .
-
-
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Aceite
 :Aceite rdf:type owl:NamedIndividual ,
                  :Ingrediente ;
@@ -420,6 +396,12 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          :nombre "Alcohol" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Alga
+:Alga rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Alga" .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Arroz
 :Arroz rdf:type owl:NamedIndividual ,
                 :Ingrediente ;
@@ -441,10 +423,25 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                  :precio 10 .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Arroz_frito
+:Arroz_frito rdf:type owl:NamedIndividual ,
+                      :Segundo ;
+             :es_de_categoria :Cat_Arroz ;
+             :es_de_estilo :Asiatico ;
+             :tiene :Arroz ,
+                    :Huevo ,
+                    :Verduras ;
+             :complejidad 3 ;
+             :nombre "Arroz frito" ;
+             :pesadez 0.6 ;
+             :precio 8 .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Asiatico
 :Asiatico rdf:type owl:NamedIndividual ,
                    :Estilo ;
           :es_fusionable_con :Tailandes ;
+          :tiene_template :Menu_Asiatico ;
           :nombre "Asiatico" .
 
 
@@ -468,6 +465,11 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
        :nombre "Carne" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Arroz
+:Cat_Arroz rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Bebida
 :Cat_Bebida rdf:type owl:NamedIndividual ,
                      :Categoria .
@@ -488,9 +490,19 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                        :Categoria .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Fruta
+:Cat_Fruta rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pasta
 :Cat_Pasta rdf:type owl:NamedIndividual ,
                     :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pasta_Sin_Glutten
+:Cat_Pasta_Sin_Glutten rdf:type owl:NamedIndividual ,
+                                :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pastel
@@ -501,6 +513,11 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pescado
 :Cat_Pescado rdf:type owl:NamedIndividual ,
                       :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Sopa
+:Cat_Sopa rdf:type owl:NamedIndividual ,
+                   :Categoria .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cebada
@@ -527,6 +544,12 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 :Chocolate rdf:type owl:NamedIndividual ,
                     :Ingrediente ;
            :nombre "Chocolate" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Coco
+:Coco rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Coco" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cumpleanos_infantil
@@ -557,6 +580,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                   :Estilo ;
          :es_fusionable_con :Italiano ,
                             :Mediterraneo ;
+         :tiene_template :Menu_Espanol ;
          :nombre "Espanol" .
 
 
@@ -570,6 +594,19 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
       :nombre "Flan" ;
       :pesadez 0.6 ;
       :precio 4 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Fruta_fresca
+:Fruta_fresca rdf:type owl:NamedIndividual ,
+                       :Postre ;
+              :es_de_categoria :Cat_Fruta ;
+              :es_de_estilo :Tailandes ;
+              :tiene :Coco ,
+                     :Mango ;
+              :complejidad 1 ;
+              :nombre "Fruta fresca" ;
+              :pesadez 0.3 ;
+              :precio 4 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Gluten-free
@@ -616,6 +653,12 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
        :nombre "Limon" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Mango
+:Mango rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Mango" .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Mediterraneo
 :Mediterraneo rdf:type owl:NamedIndividual ,
                        :Estilo ;
@@ -625,12 +668,42 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
               :nombre "Mediterraneo" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Asiatico
+:Menu_Asiatico rdf:type owl:NamedIndividual ,
+                        :Template_Menu ;
+               :primer_plato_t :Cat_Sopa ;
+               :segundo_plato_t :Cat_Arroz ;
+               :tercer_plato_t :Cat_Dulce .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Espanol
+:Menu_Espanol rdf:type owl:NamedIndividual ,
+                       :Template_Menu ;
+              :primer_plato_t :Cat_Ensalada ;
+              :segundo_plato_t :Cat_Carne ;
+              :tercer_plato_t :Cat_Dulce .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Tailandes
+:Menu_Tailandes rdf:type owl:NamedIndividual ,
+                         :Template_Menu ;
+                :primer_plato_t :Cat_Sopa ;
+                :segundo_plato_t :Cat_Arroz ;
+                :tercer_plato_t :Cat_Fruta .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Merluza
 :Merluza rdf:type owl:NamedIndividual ,
                   :Ingrediente ;
          :es_alternativa :Tofu ;
          :es_compuesto_de :Pescado ;
          :nombre "Merluza" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Ninguno
+:Ninguno rdf:type owl:NamedIndividual ,
+                  :Tipo_Evento ;
+         :nombre "Ninguno" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/No-Alcoholico
@@ -665,6 +738,19 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                  :nombre "Pasta Carbonara" ;
                  :pesadez 0.7 ;
                  :precio 12 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pasta_Carbonara_Sin_Glutten
+:Pasta_Carbonara_Sin_Glutten rdf:type owl:NamedIndividual ,
+                                      :Primero ;
+                             :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+                             :es_de_estilo :Italiano ;
+                             :tiene :Huevo ,
+                                    :Queso ;
+                             :complejidad 3 ;
+                             :nombre "Pasta Carbonara Sin Glutten" ;
+                             :pesadez 0.7 ;
+                             :precio 8 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pasta_y_pescado
@@ -722,10 +808,24 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                  :nombre "Salsa de tomate" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Sopa_de_miso
+:Sopa_de_miso rdf:type owl:NamedIndividual ,
+                       :Primero ;
+              :es_de_categoria :Cat_Sopa ;
+              :es_de_estilo :Asiatico ;
+              :tiene :Alga ,
+                     :Tofu ;
+              :complejidad 2 ;
+              :nombre "Sopa de miso" ;
+              :pesadez 0.4 ;
+              :precio 5 .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tailandes
 :Tailandes rdf:type owl:NamedIndividual ,
                     :Estilo ;
            :es_fusionable_con :Asiatico ;
+           :tiene_template :Menu_Tailandes ;
            :nombre "Tailandes" .
 
 
@@ -792,6 +892,12 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                    "Estilo de vida" .
 
 
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Verduras
+:Verduras rdf:type owl:NamedIndividual ,
+                   :Ingrediente ;
+          :nombre "Verduras" .
+
+
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Vino
 :Vino rdf:type owl:NamedIndividual ,
                :Bebida ;
@@ -806,6 +912,155 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
       :pesadez 0.5 ;
       :precio 6 .
 
+### Additional Categories
+:Cat_Marisco rdf:type owl:NamedIndividual ,
+                      :Categoria .
+
+:Cat_Vegetariano rdf:type owl:NamedIndividual ,
+                          :Categoria .
+
+:Cat_Pasta_Fresca rdf:type owl:NamedIndividual ,
+                           :Categoria .
+
+### Additional Styles with Templates
+:Frances rdf:type owl:NamedIndividual ,
+                   :Estilo ;
+          :nombre "Frances" ;
+          :tiene_template :Menu_Frances ;
+          :es_fusionable_con :Mediterraneo ,
+                             :Espanol .
+
+:Mexicano rdf:type owl:NamedIndividual ,
+                    :Estilo ;
+           :nombre "Mexicano" ;
+           :tiene_template :Menu_Mexicano ;
+           :es_fusionable_con :Espanol .
+
+### Template Menus
+:Menu_Frances rdf:type owl:NamedIndividual ,
+                       :Template_Menu ;
+              :primer_plato_t :Cat_Sopa ;
+              :segundo_plato_t :Cat_Carne ;
+              :tercer_plato_t :Cat_Pastel .
+
+:Menu_Mexicano rdf:type owl:NamedIndividual ,
+                        :Template_Menu ;
+               :primer_plato_t :Cat_Ensalada ;
+               :segundo_plato_t :Cat_Vegetariano ;
+               :tercer_plato_t :Cat_Dulce .
+
+### Additional Ingredients
+:Maiz rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Maiz" .
+
+:Chile rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Chile" .
+
+:Aguacate rdf:type owl:NamedIndividual ,
+                     :Ingrediente ;
+            :nombre "Aguacate" .
+
+:Crema rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :es_compuesto_de :Leche ;
+        :nombre "Crema" .
+
+### Complete Dishes
+:Sopa_de_cebolla rdf:type owl:NamedIndividual ,
+                          :Primero ;
+                 :es_de_categoria :Cat_Sopa ;
+                 :es_de_estilo :Frances ;
+                 :tiene :Cebolla ,
+                        :Pan ,
+                        :Queso ;
+                 :complejidad 2 ;
+                 :nombre "Sopa de cebolla" ;
+                 :pesadez 0.5 ;
+                 :precio 7 .
+
+:Tacos_vegetarianos rdf:type owl:NamedIndividual ,
+                             :Segundo ;
+                    :es_de_categoria :Cat_Vegetariano ;
+                    :es_de_estilo :Mexicano ;
+                    :tiene :Maiz ,
+                           :Aguacate ,
+                           :Lechuga ,
+                           :Crema ;
+                    :complejidad 2 ;
+                    :nombre "Tacos vegetarianos" ;
+                    :pesadez 0.6 ;
+                    :precio 9 .
+
+:Profiteroles rdf:type owl:NamedIndividual ,
+                       :Postre ;
+              :es_de_categoria :Cat_Pastel ;
+              :es_de_estilo :Frances ;
+              :tiene :Crema ,
+                     :Chocolate ;
+              :complejidad 3 ;
+              :nombre "Profiteroles" ;
+              :pesadez 0.7 ;
+              :precio 6 .
+
+### Additional Restrictions
+:Halal rdf:type owl:NamedIndividual ,
+                 :Restriccion ;
+        :restringe :Cerdo ,
+                   :Alcohol ;
+        :peso 0.9 ;
+        :tipo "Religiosa" .
+
+:Kosher rdf:type owl:NamedIndividual ,
+                  :Restriccion ;
+         :restringe :Cerdo ,
+                    :Marisco ;
+         :peso 0.9 ;
+         :tipo "Religiosa" .
+
+### Additional Event Types
+:Cena_de_gala rdf:type owl:NamedIndividual ,
+                       :Tipo_Evento ;
+              :incluye :Cat_Marisco ;
+              :limita :Vegetariano .
+
+:Fiesta_infantil rdf:type owl:NamedIndividual ,
+                          :Tipo_Evento ;
+                 :incluye :Cat_Pastel ;
+                 :limita :No-Alcoholico ,
+                         :Vegano .
+
+### Complete Menus
+:Menu_Frances_Ejemplo rdf:type owl:NamedIndividual ,
+                               :Menu ;
+                      :primer_plato :Sopa_de_cebolla ;
+                      :segundo_plato :Filete ;
+                      :tercer_plato :Profiteroles ;
+                      :bebida :Vino .
+
+:Menu_Mexicano_Ejemplo rdf:type owl:NamedIndividual ,
+                                :Menu ;
+                       :primer_plato :Ensalada_Cesar ;
+                       :segundo_plato :Tacos_vegetarianos ;
+                       :tercer_plato :Flan ;
+                       :bebida :Cerveza .
+
+### Additional Relations
+:Cerdo rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Cerdo" .
+
+:Filete rdf:type owl:NamedIndividual ,
+                  :Segundo ;
+         :es_de_categoria :Cat_Carne ;
+         :es_de_estilo :Frances ;
+         :tiene :Carne ,
+                :Romero ;
+         :complejidad 3 ;
+         :nombre "Filete" ;
+         :pesadez 0.8 ;
+         :precio 15 .
 
 #################################################################
 #    General axioms
