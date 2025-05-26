@@ -1970,6 +1970,87 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :pesadez 0.2 ;
     :precio 0.7 .
 
+:Agua_de_Olivas rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Sopa ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Agua , :Aceite ;  # Water with oil sheen
+    :complejidad 0 ;
+    :nombre "Caldo de Existencia" ;
+    :pesadez 0.05 ;
+    :precio 0.3 .
+
+:Pan_del_Ayer rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Ensalada ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Pan ;  # 3-day old bread chunk
+    :complejidad 0 ;
+    :nombre "Pan Histórico" ;
+    :pesadez 0.3 ;
+    :precio 0.7 .
+
+:Hoja_de_Parra rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Ensalada ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Verduras ;  # Literal grape leaf
+    :complejidad 0 ;
+    :nombre "Ensalada Arqueológica" ;
+    :pesadez 0.1 ;
+    :precio 0.4 .
+
+:Bocina_de_Anchoa rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Pescado ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Anchoa ;  # Half an anchovy
+    :complejidad 0 ;
+    :nombre "Esencia de Mar" ;
+    :pesadez 0.2 ;
+    :precio 1 .
+
+:Tomatito_Solitario rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Tomate ;  # Cherry tomato on plate
+    :complejidad 0 ;
+    :nombre "Tomate Existencial" ;
+    :pesadez 0.15 ;
+    :precio 0.9 .
+
+:Sombra_de_Berenjena rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Verduras ;  # Eggplant skin scrapings
+    :complejidad 1 ;
+    :nombre "Fantasma de Berenjena" ;
+    :pesadez 0.1 ;
+    :precio 0.6 .
+
+:Almendra_Única rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Dulce ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Almendra ;  # Single almond
+    :complejidad 0 ;
+    :nombre "Dulce Monádico" ;
+    :pesadez 0.1 ;
+    :precio 0.5 .
+
+:Aire_de_Miel rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Pastel ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Azucar ;  # Sugar dust near honey jar
+    :complejidad 0 ;
+    :nombre "Recuerdo de Miel" ;
+    :pesadez 0 ;
+    :precio 0.3 .
+
+:Uva_Cósmica rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Fruta ;
+    :es_de_estilo :Mediterraneo ;
+    :tiene :Uva ;  # Lone grape
+    :complejidad 0 ;
+    :nombre "Fruto del Vacío" ;
+    :pesadez 0.1 ;
+    :precio 0.8 .
+
 ### Pasta Carbonara Variant
 :Pasta_Carbonara_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
     :es_de_categoria :Cat_Pasta_Sin_Glutten ;
