@@ -1238,7 +1238,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Miel
-:Miel rdf:type owl:NamedIndividual .
+:Miel rdf:type owl:NamedIndividual ,
+              :Ingrediente ;
+              :nombre "Miel" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Minestrone
