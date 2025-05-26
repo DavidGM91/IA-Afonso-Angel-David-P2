@@ -536,13 +536,13 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
       :nombre "Atún" .
 
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Atún_con_verduras
-:Atún_con_verduras rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Atun_con_verduras
+:Atun_con_verduras rdf:type owl:NamedIndividual ,
                             :Segundo ;
                    :es_de_categoria :Cat_Pescado ;
                    :es_de_estilo :Asiatico ,
                                  :Tailandes ;
-                   :tiene :Atún ,
+                   :tiene :Atun ,
                           :Verduras ;
                    :complejidad 2 ;
                    :nombre "Atún con verduras" ;
@@ -1555,13 +1555,13 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                 :precio 7 .
 
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tartar_de_atún
-:Tartar_de_atún rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tartar_de_atun
+:Tartar_de_atun rdf:type owl:NamedIndividual ,
                          :Primero ;
                 :es_de_categoria :Cat_Pescado ;
                 :es_de_estilo :Frances ;
                 :tiene :Aguacate ,
-                       :Atún ;
+                       :Atun ;
                 :complejidad 2 ;
                 :nombre "Tartar de atún" ;
                 :pesadez 0.5 ;
