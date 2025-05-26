@@ -16,11 +16,8 @@
 ;; En este archivo se definen las reglas para refinar la solución utilizando datos del problema concreto.
 (defrule find-plato-de-estilo-sin-bebida
 "Esta regla encuentra un plato de un estilo concreto sin incluir bebida. En el rango de precios indicado."
-    (problema-concreto (estilo ?nombre-estilo) (comensales ?s) (incluir-bebida ?b) (presupuesto-minimo ?min) (presupuesto-maximo ?max))
+    (problema-concreto (estilo ?nombre-estilo) (instance-estilo ?estilo) (comensales ?s) (incluir-bebida ?b) (presupuesto-minimo ?min) (presupuesto-maximo ?max))
 	(test (not (eq ?b TRUE)))
-	?estilo <- (object 
-        (is-a Estilo)
-        (nombre ?nombre-estilo))
 	?t <- (object (is-a Template_Escogido))
     ?primero <- (object (is-a Primero))
 	(test (member$ (send ?t get-primer_plato_t) (send ?primero get-es_de_categoria)))
@@ -32,7 +29,7 @@
 	(test (member$ (send ?t get-tercer_plato_t) (send ?postre get-es_de_categoria)))
 	(test (member$ ?estilo (send ?postre get-es_de_estilo)))
 	(test (> (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) ?min))
-	(test (< (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) ?max))
+	(test (< (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (* ?max (send ?t get-multiplicador-precio-max))))
     =>
     (bind ?precio (+ (+ 
         (send ?primero get-precio) 
@@ -49,11 +46,8 @@
 
 (defrule find-plato-de-estilo-con-bebida
 "Esta regla encuentra un plato de un estilo concreto incluyendo bebida. En el rango de precios indicado."
-    (problema-concreto (estilo ?nombre-estilo) (comensales ?s) (incluir-bebida ?b) (presupuesto-minimo ?min) (presupuesto-maximo ?max))
+    (problema-concreto (estilo ?nombre-estilo) (instance-estilo ?estilo) (comensales ?s) (incluir-bebida ?b) (presupuesto-minimo ?min) (presupuesto-maximo ?max))
 	(test (eq ?b TRUE))
-	?estilo <- (object 
-        (is-a Estilo)
-        (nombre ?nombre-estilo))
 	?t <- (object (is-a Template_Escogido))
     ?primero <- (object (is-a Primero))
 	(test (member$ (send ?t get-primer_plato_t) (send ?primero get-es_de_categoria)))
@@ -67,7 +61,7 @@
     ?bebida <- (object (is-a Bebida))
 	(test (member$ ?estilo (send ?bebida get-es_de_estilo)))
 	(test (> (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)) ?min))
-	(test (< (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)) ?max))
+	(test (< (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)) (* ?max (send ?t get-multiplicador-precio-max))))
     =>
     (bind ?precio (+ (+ (+ (send ?primero get-precio) (send ?segundo get-precio)) (send ?postre get-precio)) (send ?bebida get-precio)))
 	

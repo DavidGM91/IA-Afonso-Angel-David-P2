@@ -2,11 +2,12 @@
     ""(declare (salience 300)) =>
 	
 	(assert (estilo-de-cocina "Mediterraneo"))
-	(assert (comensales 3))
-	(assert (tipo-de-evento "Cumpleaños Infantil"))
+    (assert (instancia-estilo [Mediterraneo]))
+	(assert (comensales 1))
+	(assert (tipo-de-evento "Ninguno"))
 	(assert (menu-con-bebida TRUE))
-	(assert (precio-minimo-menu 12))
-	(assert (precio-maximo-menu 22))
+	(assert (precio-minimo-menu 1))
+	(assert (precio-maximo-menu 200000))
 	(assert (lista-restricciones-activas (restricciones (create$ [Restriccion-Celiaquia]))))
 	
 	(undefrule determinar-estilo-de-cocina)
