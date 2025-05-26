@@ -726,7 +726,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          :es_de_categoria :Cat_Pescado ;
          :es_de_estilo :Asiatico ,
                        :Tailandes ;
-         :tiene :Limón ,
+         :tiene :Limon ,
                 :Pescado ;
          :complejidad 2 ;
          :nombre "Ceviche" ;
@@ -809,7 +809,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                         :es_de_estilo :Italiano ,
                                       :Mediterraneo ;
                         :tiene :Alcachofa ,
-                               :Limón ;
+                               :Limon ;
                         :complejidad 2 ;
                         :nombre "Ensalada de alcachofas" ;
                         :pesadez 0.4 ;
@@ -991,9 +991,10 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
        :nombre "Limon" .
 
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Limón
-:Limón rdf:type owl:NamedIndividual .
-
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Limon
+:Limon rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Limon" .
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Maiz
 :Maiz rdf:type owl:NamedIndividual ,
@@ -1404,7 +1405,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                      :es_de_categoria :Cat_Pescado ;
                      :es_de_estilo :Frances ,
                                    :Mediterraneo ;
-                     :tiene :Limón ,
+                     :tiene :Limon ,
                             :Salmón ;
                      :complejidad 2 ;
                      :nombre "Salmón a la plancha" ;
