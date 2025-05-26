@@ -1848,6 +1848,36 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :pesadez 0.4 ;
     :precio 6 .
 
+### Japanese Green Tea Mochi Cake
+:Mochi_TeVerde rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Pastel ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Arroz_glutinoso , :Te_Verde , :Azucar ;
+    :complejidad 2 ;
+    :nombre "Mochi de Té Verde" ;
+    :pesadez 0.4 ;
+    :precio 8 .
+
+### Chinese Coconut-Mango Mooncake
+:Pastel_Luna_Asiatico rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Pastel ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Mango , :Coco , :Azucar ;
+    :complejidad 3 ;
+    :nombre "Pastel de Luna (Mango-Coco)" ;
+    :pesadez 0.6 ;
+    :precio 12 .
+
+### Thai Steamed Coconut Cake
+:Tarta_Coco_Vapor rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Pastel ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Leche_de_coco , :Arroz_glutinoso , :Huevo ;
+    :complejidad 2 ;
+    :nombre "Khanom Chan Tailandés" ;
+    :pesadez 0.5 ;
+    :precio 10 .
+
 #################################################################
 #    General axioms
 #################################################################
