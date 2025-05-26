@@ -1,8 +1,8 @@
 ;;; ---------------------------------------------------------
 ;;; ontologia.clp
 ;;; Translated by owl2clips
-;;; Translated to CLIPS from ontology .\SBCAAD1.5.ttl
-;;; :Date 26/05/2025 20:42:18
+;;; Translated to CLIPS from ontology .\SBCAAD1.6.ttl
+;;; :Date 26/05/2025 22:50:02
 
 (defclass Plato "Nos indica un plato del menu"
     (is-a USER)
@@ -226,6 +226,10 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  1)
     )
 
+    ([Aguacate] of Ingrediente
+         (nombre  "Aguacate")
+    )
+
     ([Alcohol] of Ingrediente
          (nombre  "Alcohol")
     )
@@ -260,7 +264,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
     ([Asiatico] of Estilo
          (es_fusionable_con  [Tailandes])
-         (tiene_template  [Menu_Asiatico])
+         (tiene_template  [Menu_Asiatico] [Menu_Asiatico_2] [Menu_Asiatico_3])
          (nombre  "Asiatico")
     )
 
@@ -296,7 +300,13 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     ([Cat_Fruta] of Categoria
     )
 
+    ([Cat_Marisco] of Categoria
+    )
+
     ([Cat_Pasta] of Categoria
+    )
+
+    ([Cat_Pasta_Fresca] of Categoria
     )
 
     ([Cat_Pasta_Sin_Glutten] of Categoria
@@ -311,8 +321,25 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     ([Cat_Sopa] of Categoria
     )
 
+    ([Cat_Vegetariano] of Categoria
+    )
+
     ([Cebada] of Ingrediente
          (nombre  "Cebada")
+    )
+
+    ([Cebolla] of Ingrediente
+         (nombre  "Cebolla")
+    )
+
+    ([Cena_de_gala] of Tipo_Evento
+         (incluye  [Cat_Marisco])
+         (limita  [Vegetariano])
+         (nombre  "Cena de gala")
+    )
+
+    ([Cerdo] of Ingrediente
+         (nombre  "Cerdo")
     )
 
     ([Cerveza] of Bebida
@@ -325,12 +352,21 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (precio  3)
     )
 
+    ([Chile] of Ingrediente
+         (nombre  "Chile")
+    )
+
     ([Chocolate] of Ingrediente
          (nombre  "Chocolate")
     )
 
     ([Coco] of Ingrediente
          (nombre  "Coco")
+    )
+
+    ([Crema] of Ingrediente
+         (es_compuesto_de  [Leche])
+         (nombre  "Crema")
     )
 
     ([Cumpleanos_infantil] of Tipo_Evento
@@ -355,6 +391,22 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Espanol")
     )
 
+    ([Fiesta_infantil] of Tipo_Evento
+         (incluye  [Cat_Pastel])
+         (limita  [No-Alcoholico] [Vegano])
+         (nombre  "Fiesta infantil")
+    )
+
+    ([Filete] of Segundo
+         (es_de_categoria  [Cat_Carne])
+         (es_de_estilo  [Frances])
+         (tiene  [Carne] [Romero])
+         (complejidad  3)
+         (nombre  "Filete")
+         (pesadez  0.8)
+         (precio  15)
+    )
+
     ([Flan] of Postre
          (es_de_categoria  [Cat_Dulce])
          (tiene  [Huevo] [Leche])
@@ -362,6 +414,12 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Flan")
          (pesadez  0.6)
          (precio  4)
+    )
+
+    ([Frances] of Estilo
+         (es_fusionable_con  [Espanol] [Mediterraneo])
+         (tiene_template  [Menu_Frances])
+         (nombre  "Frances")
     )
 
     ([Fruta_fresca] of Postre
@@ -377,8 +435,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     ([Gluten-free] of Restriccion
          (ofrece_alternativa  [Cat_Pasta_Sin_Glutten])
          (restringe  [Cat_Pasta])
+         (nombre  "Gluten free")
          (peso  1)
          (tipo  "Dietaria" "Intolerancia" "Moda")
+    )
+
+    ([Halal] of Restriccion
+         (restringe  [Alcohol] [Cerdo])
+         (nombre  "Halal")
+         (peso  0.9)
+         (tipo  "Religiosa")
     )
 
     ([Huevo] of Ingrediente
@@ -387,8 +453,15 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
     ([Italiano] of Estilo
          (es_fusionable_con  [Espanol] [Mediterraneo])
-         (tiene_template  [Pasta_y_pescado])
+         (tiene_template  [Menu_Italiano] [Menu_Italiano_2] [Menu_Italiano_3])
          (nombre  "Italiano")
+    )
+
+    ([Kosher] of Restriccion
+         (restringe  [Cerdo] [Marisco])
+         (nombre  "Kosher")
+         (peso  0.9)
+         (tipo  "Religiosa")
     )
 
     ([Leche] of Ingrediente
@@ -403,13 +476,21 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Limon")
     )
 
+    ([Maiz] of Ingrediente
+         (nombre  "Maiz")
+    )
+
     ([Mango] of Ingrediente
          (nombre  "Mango")
     )
 
+    ([Marisco] of Ingrediente
+         (nombre  "Marisco")
+    )
+
     ([Mediterraneo] of Estilo
          (es_fusionable_con  [Espanol] [Italiano])
-         (tiene_template  [Pasta_y_pescado])
+         (tiene_template  [Menu_Mediterraneo] [Menu_Mediterraneo_2] [Menu_Mediterraneo_3])
          (nombre  "Mediterraneo")
     )
 
@@ -419,10 +500,84 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (tercer_plato_t  [Cat_Dulce])
     )
 
+    ([Menu_Asiatico_2] of Template_Menu
+         (primer_plato_t  [Cat_Arroz])
+         (segundo_plato_t  [Cat_Pescado])
+         (tercer_plato_t  [Cat_Pastel])
+    )
+
+    ([Menu_Asiatico_3] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Pescado])
+         (tercer_plato_t  [Cat_Pastel])
+    )
+
     ([Menu_Espanol] of Template_Menu
          (primer_plato_t  [Cat_Ensalada])
          (segundo_plato_t  [Cat_Carne])
          (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Menu_Frances] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Carne])
+         (tercer_plato_t  [Cat_Pastel])
+    )
+
+    ([Menu_Frances_Ejemplo] of Menu
+         (bebida  [Vino])
+         (primer_plato  [Sopa_de_cebolla])
+         (segundo_plato  [Filete])
+         (tercer_plato  [Profiteroles])
+    )
+
+    ([Menu_Italiano] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Pasta])
+         (tercer_plato_t  [Cat_Pastel])
+    )
+
+    ([Menu_Italiano_2] of Template_Menu
+         (primer_plato_t  [Cat_Ensalada])
+         (segundo_plato_t  [Cat_Carne])
+         (tercer_plato_t  [Cat_Fruta])
+    )
+
+    ([Menu_Italiano_3] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Pasta])
+         (tercer_plato_t  [Cat_Fruta])
+    )
+
+    ([Menu_Mediterraneo] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Carne])
+         (tercer_plato_t  [Cat_Pastel])
+    )
+
+    ([Menu_Mediterraneo_2] of Template_Menu
+         (primer_plato_t  [Cat_Ensalada])
+         (segundo_plato_t  [Cat_Marisco])
+         (tercer_plato_t  [Cat_Fruta])
+    )
+
+    ([Menu_Mediterraneo_3] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Pescado])
+         (tercer_plato_t  [Cat_Fruta])
+    )
+
+    ([Menu_Mexicano] of Template_Menu
+         (primer_plato_t  [Cat_Ensalada])
+         (segundo_plato_t  [Cat_Vegetariano])
+         (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Menu_Mexicano_Ejemplo] of Menu
+         (bebida  [Cerveza])
+         (primer_plato  [Ensalada_Cesar])
+         (segundo_plato  [Tacos_vegetarianos])
+         (tercer_plato  [Flan])
     )
 
     ([Menu_Tailandes] of Template_Menu
@@ -437,12 +592,19 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Merluza")
     )
 
+    ([Mexicano] of Estilo
+         (es_fusionable_con  [Espanol])
+         (tiene_template  [Menu_Mexicano])
+         (nombre  "Mexicano")
+    )
+
     ([Ninguno] of Tipo_Evento
          (nombre  "Ninguno")
     )
 
     ([No-Alcoholico] of Restriccion
          (restringe  [Alcohol])
+         (nombre  "No alcoholico")
          (peso  1)
          (tipo  "Estilo de vida")
     )
@@ -498,6 +660,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Pollo")
     )
 
+    ([Profiteroles] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Frances])
+         (tiene  [Chocolate] [Crema])
+         (complejidad  3)
+         (nombre  "Profiteroles")
+         (pesadez  0.7)
+         (precio  6)
+    )
+
     ([Queso] of Ingrediente
          (es_compuesto_de  [Leche])
          (nombre  "Queso")
@@ -512,6 +684,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Salsa de tomate")
     )
 
+    ([Sopa_de_cebolla] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Frances])
+         (tiene  [Cebolla] [Pan] [Queso])
+         (complejidad  2)
+         (nombre  "Sopa de cebolla")
+         (pesadez  0.5)
+         (precio  7)
+    )
+
     ([Sopa_de_miso] of Primero
          (es_de_categoria  [Cat_Sopa])
          (es_de_estilo  [Asiatico])
@@ -520,6 +702,16 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Sopa de miso")
          (pesadez  0.4)
          (precio  5)
+    )
+
+    ([Tacos_vegetarianos] of Segundo
+         (es_de_categoria  [Cat_Vegetariano])
+         (es_de_estilo  [Mexicano])
+         (tiene  [Aguacate] [Crema] [Lechuga] [Maiz])
+         (complejidad  2)
+         (nombre  "Tacos vegetarianos")
+         (pesadez  0.6)
+         (precio  9)
     )
 
     ([Tailandes] of Estilo
@@ -553,12 +745,14 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
     ([Vegano] of Restriccion
          (restringe  [Carne] [Cat_Carne] [Cat_Pescado] [Huevo] [Leche] [Pescado] [Queso])
+         (nombre  "Vegano")
          (peso  1)
          (tipo  "Dietaria" "Estilo de vida")
     )
 
     ([Vegetariano] of Restriccion
          (restringe  [Carne] [Cat_Carne] [Cat_Pescado] [Pescado])
+         (nombre  "Vegetariano")
          (peso  0.8)
          (tipo  "Dietaria" "Estilo de vida")
     )
@@ -575,136 +769,6 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
          (nombre  "Vino Tinto")
          (pesadez  0.5)
          (precio  6)
-    )
-
-    ([Cat_Marisco] of Categoria
-    )
-
-    ([Cat_Vegetariano] of Categoria
-    )
-
-    ([Cat_Pasta_Fresca] of Categoria
-    )
-
-    ([Frances] of Estilo
-         (es_fusionable_con  [Mediterraneo] [Espanol])
-         (tiene_template  [Menu_Frances])
-         (nombre  "Frances")
-    )
-
-    ([Mexicano] of Estilo
-         (es_fusionable_con  [Espanol])
-         (tiene_template  [Menu_Mexicano])
-         (nombre  "Mexicano")
-    )
-
-    ([Menu_Frances] of Template_Menu
-         (primer_plato_t  [Cat_Sopa])
-         (segundo_plato_t  [Cat_Carne])
-         (tercer_plato_t  [Cat_Pastel])
-    )
-
-    ([Menu_Mexicano] of Template_Menu
-         (primer_plato_t  [Cat_Ensalada])
-         (segundo_plato_t  [Cat_Vegetariano])
-         (tercer_plato_t  [Cat_Dulce])
-    )
-
-    ([Maiz] of Ingrediente
-         (nombre  "Maiz")
-    )
-
-    ([Chile] of Ingrediente
-         (nombre  "Chile")
-    )
-
-    ([Aguacate] of Ingrediente
-         (nombre  "Aguacate")
-    )
-
-    ([Crema] of Ingrediente
-         (es_compuesto_de  [Leche])
-         (nombre  "Crema")
-    )
-
-    ([Sopa_de_cebolla] of Primero
-         (es_de_categoria  [Cat_Sopa])
-         (es_de_estilo  [Frances])
-         (tiene  [Cebolla] [Pan] [Queso])
-         (complejidad  2)
-         (nombre  "Sopa de cebolla")
-         (pesadez  0.5)
-         (precio  7)
-    )
-
-    ([Tacos_vegetarianos] of Segundo
-         (es_de_categoria  [Cat_Vegetariano])
-         (es_de_estilo  [Mexicano])
-         (tiene  [Maiz] [Aguacate] [Lechuga] [Crema])
-         (complejidad  2)
-         (nombre  "Tacos vegetarianos")
-         (pesadez  0.6)
-         (precio  9)
-    )
-
-    ([Profiteroles] of Postre
-         (es_de_categoria  [Cat_Pastel])
-         (es_de_estilo  [Frances])
-         (tiene  [Crema] [Chocolate])
-         (complejidad  3)
-         (nombre  "Profiteroles")
-         (pesadez  0.7)
-         (precio  6)
-    )
-
-    ([Halal] of Restriccion
-         (restringe  [Cerdo] [Alcohol])
-         (peso  0.9)
-         (tipo  "Religiosa")
-    )
-
-    ([Kosher] of Restriccion
-         (restringe  [Cerdo] [Marisco])
-         (peso  0.9)
-         (tipo  "Religiosa")
-    )
-
-    ([Cena_de_gala] of Tipo_Evento
-         (incluye  [Cat_Marisco])
-         (limita  [Vegetariano])
-    )
-
-    ([Fiesta_infantil] of Tipo_Evento
-         (incluye  [Cat_Pastel])
-         (limita  [No-Alcoholico] [Vegano])
-    )
-
-    ([Menu_Frances_Ejemplo] of Menu
-         (bebida  [Vino])
-         (primer_plato  [Sopa_de_cebolla])
-         (segundo_plato  [Filete])
-         (tercer_plato  [Profiteroles])
-    )
-
-    ([Menu_Mexicano_Ejemplo] of Menu
-         (bebida  [Cerveza])
-         (primer_plato  [Ensalada_Cesar])
-         (segundo_plato  [Tacos_vegetarianos])
-         (tercer_plato  [Flan])
-    )
-
-    ([Cerdo] of Ingrediente
-         (nombre  "Cerdo")
-    )
-
-    ([Filete] of Segundo
-         (es_de_categoria  [Cat_Carne])
-         (es_de_estilo  [Frances])
-         (tiene  [Carne] [Romero])
-         (complejidad  3)
-         (nombre  "Filete")
-         (pesadez  0.8)
-         (precio  15)
     )
 
 )

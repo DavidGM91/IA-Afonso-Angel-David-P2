@@ -19,33 +19,28 @@
     (is-a Template_Menu)
     (role concrete)
     (pattern-match reactive)
+    (slot multiplicador-precio (create-accessor read-write))
 )
 
-(defrule escoger-templates-menu-mediterraneo
-    (not (template-menu))
-	?pa <- (problema-abstracto (estilo-activo "Mediterraneo"))
+(defrule escoger-templates-menu
+	?pa <- (problema-abstracto (estilo-activo ?nombre-estilo))
+	?estilo <- (object 
+        (is-a Estilo)
+        (nombre ?nombre-estilo))
     =>
-    (bind ?t1 [Pasta_y_pescado])
+	(bind ?i 1)
+	(while (<= ?i 3)
+	do
+	(bind ?t (nth$ ?i (send ?estilo get-tiene_template)))
 	(make-instance (gensym) of Template_Escogido
-        (nombre (send ?t1 get-nombre))
-        (primer_plato_t (send ?t1 get-primer_plato_t))
-        (segundo_plato_t (send ?t1 get-segundo_plato_t))
-        (tercer_plato_t (send ?t1 get-tercer_plato_t))
+        (nombre (send ?t get-nombre))
+        (primer_plato_t (send ?t get-primer_plato_t))
+        (segundo_plato_t (send ?t get-segundo_plato_t))
+        (tercer_plato_t (send ?t get-tercer_plato_t))
+		(multiplicador-precio (+ 0.1 (* ?i 0.3)))
     )
-    (bind ?t2 [Menu_Espanol])
-	(make-instance (gensym) of Template_Escogido
-        (nombre (send ?t2 get-nombre))
-        (primer_plato_t (send ?t2 get-primer_plato_t))
-        (segundo_plato_t (send ?t2 get-segundo_plato_t))
-        (tercer_plato_t (send ?t2 get-tercer_plato_t))
-    )
-	;(bind ?t3 [Template-...])
-	;(make-instance (gensym) of Template_Escogido
-    ;    (nombre (send ?t3 get-nombre))
-    ;    (primer_plato_t (send ?t3 get-primer_plato_t))
-    ;    (segundo_plato_t (send ?t3 get-segundo_plato_t))
-    ;    (tercer_plato_t (send ?t3 get-tercer_plato_t))
-    ;)
+	(bind ?i (+ ?i 1))
+	)
 )
 
 (deftemplate complejidad-maxima

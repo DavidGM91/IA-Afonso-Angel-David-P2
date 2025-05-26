@@ -38,13 +38,13 @@
 )
 (defrule generar-lista-estilos
 "Obtenemos la lista de estilos de cocina disponibles."
-    ""(declare (salience 150))
+    (declare (salience 150))
 	(not (lista-estilos)) =>
 	(assert (lista-estilos (estilos (find-all-instances ((?e Estilo)) TRUE))))
 )
 (defrule generar-lista-nombres-estilos
 "Obtenemos la lista de nombres de estilos de cocina disponibles."
-    ""(declare (salience 125))
+    (declare (salience 125))
 	?l <- (lista-estilos (estilos $?estilos))
 	(not (lista-nombres-estilos)) =>
 	(bind $?nombres (create$))
@@ -61,7 +61,7 @@
 )
 ;;
 (deffunction ask-estilo ($?allowed-values)
-	"Solicitamos al usuario que elija un estilo de cocina de la lista de estilos disponibles."
+"Solicitamos al usuario que elija un estilo de cocina de la lista de estilos disponibles."
 	(print "¿Qué estilo de cocina quiere? (Introduzca el número)")
 	(print crlf)
 	(print "Estilos disponibles:")
@@ -87,13 +87,13 @@
 )
 (defrule generar-lista-eventos
 "Obtenemos la lista de eventos disponibles."
-    ""(declare (salience 150))
+    (declare (salience 150))
 	(not (lista-eventos)) =>
 	(assert (lista-eventos (eventos (find-all-instances ((?e Tipo_Evento)) TRUE))))
 )
 (defrule generar-lista-nombres-eventos
 "Obtenemos la lista de nombres de eventos disponibles."
-    ""(declare (salience 125))
+    (declare (salience 125))
 	?l <- (lista-eventos (eventos $?eventos))
 	(not (lista-nombres-eventos)) =>
 	(bind $?nombres (create$))
@@ -183,7 +183,7 @@
 
 (defrule determinar-comensales
 "Esta regla determina el número de comensales a partir de una pregunta al usuario."
-	""(declare (salience 95))
+	(declare (salience 95))
 	(not (comensales)) =>
 	(assert (comensales 
 		(ask-question "¿Para cuantos comensales?")
