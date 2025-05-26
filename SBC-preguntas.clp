@@ -144,10 +144,12 @@
 (defrule determinar-estilo-de-cocina
 "Esta regla determina el estilo de cocina a partir de una lista de estilos disponibles."
     (declare (salience 98)) 
-	?l <- (lista-nombres-estilos (nombres $?nombres))
+	?le <- (lista-estilos (estilos $?estilos))
+	?ln <- (lista-nombres-estilos (nombres $?nombres))
 	(not (estilo-de-cocina))
 	=>
 	(bind ?i (ask-estilo ?nombres))
+    (assert (instancia-estilo (nth$ ?i $?estilos)))
     (assert (estilo-de-cocina (nth$ ?i $?nombres)))
 )
 
@@ -219,6 +221,7 @@
 ;; Definimos el template para almacenar el problema concreto
 (deftemplate problema-concreto
     (slot estilo)
+    (slot instance-estilo)
     (slot evento)
     (slot comensales)
     (slot incluir-bebida)
@@ -230,6 +233,7 @@
 (defrule crear-problema-concreto
 "Esta regla crea un hecho que representa el problema concreto a partir de los hechos individuales. Cosa que nos permite ser más modulares al dividir el trabajo."
     ?es <- (estilo-de-cocina ?estilo)
+    ?ie <- (instancia-estilo ?instance-estilo)
     ?ev <- (tipo-de-evento ?evento)
     ?c <- (comensales ?comensales)
     ?b <- (menu-con-bebida ?bebida)
@@ -239,6 +243,7 @@
     =>
     (assert (problema-concreto 
         (estilo ?estilo)
+        (instance-estilo ?instance-estilo)
         (evento ?evento)
         (comensales ?comensales)
 		(incluir-bebida ?bebida)
@@ -247,6 +252,7 @@
 		(restricciones ?restricciones)
     ))
     (retract ?es)
+    (retract ?ie)
     (retract ?ev)
     (retract ?c)
     (retract ?b)
