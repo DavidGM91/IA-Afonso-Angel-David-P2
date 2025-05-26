@@ -1883,7 +1883,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 1 ;
     :nombre "Bruschetta al Pomodoro" ;
     :pesadez 0.4 ;
-    :precio 6 .
+    :precio 4 .
 
 :Polpette_di_Verdure rdf:type owl:NamedIndividual , :Segundo ;
     :es_de_categoria :Cat_Vegetariano ;
@@ -1892,7 +1892,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Polpette di Verdure" ;
     :pesadez 0.6 ;
-    :precio 7 .
+    :precio 5 .
 
 :Pollo_al_Limone rdf:type owl:NamedIndividual , :Segundo ;
     :es_de_categoria :Cat_Carne ;
@@ -1901,7 +1901,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Pollo al Limone" ;
     :pesadez 0.5 ;
-    :precio 8 .
+    :precio 6 .
 
 :Frittata_di_Zucchine rdf:type owl:NamedIndividual , :Segundo ;
     :es_de_categoria :Cat_Vegetariano ;
@@ -1910,7 +1910,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 1 ;
     :nombre "Frittata di Verdure" ;
     :pesadez 0.5 ;
-    :precio 6 .
+    :precio 5 .
 
 :Panna_Cotta_Semplice rdf:type owl:NamedIndividual , :Postre ;
     :es_de_categoria :Cat_Pastel ;
@@ -1919,7 +1919,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Panna Cotta" ;
     :pesadez 0.6 ;
-    :precio 5 .
+    :precio 4 .
 
 :Macedonia_di_Frutta rdf:type owl:NamedIndividual , :Postre ;
     :es_de_categoria :Cat_Fruta ;
@@ -1928,7 +1928,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 1 ;
     :nombre "Macedonia" ;
     :pesadez 0.3 ;
-    :precio 4 .
+    :precio 3 .
 
 :Cantucci_Senza_Glutine rdf:type owl:NamedIndividual , :Postre ;
     :es_de_categoria :Cat_Dulce ;
@@ -1957,7 +1957,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Khanom Chan Tailandés" ;
     :pesadez 0.5 ;
-    :precio 10 .
+    :precio 7 .
 
 #################################################################
 #    General axioms
