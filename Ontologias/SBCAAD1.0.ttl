@@ -590,14 +590,6 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
               :nombre "Mediterraneo" .
 
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu_Boda
-:Menu_Boda rdf:type owl:NamedIndividual ,
-                    :Template_Menu ;
-           :primer_plato_t :Cat_Ensalada ;
-           :segundo_plato_t :Cat_Carne ;
-           :tercer_plato_t :Cat_Pastel .
-
-
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Merluza
 :Merluza rdf:type owl:NamedIndividual ,
                   :Ingrediente ;
