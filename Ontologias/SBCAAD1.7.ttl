@@ -1358,8 +1358,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
               :complejidad 3 ;
               :nombre "Profiteroles" ;
               :pesadez 0.7 ;
-              :precio 6 ,
-                      8 .
+              :precio 6 .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Queso
