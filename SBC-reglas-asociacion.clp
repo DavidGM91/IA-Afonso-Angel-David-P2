@@ -39,19 +39,13 @@
         (segundo_plato_t (send ?t2 get-segundo_plato_t))
         (tercer_plato_t (send ?t2 get-tercer_plato_t))
     )
-	;(bind ?t3 [Template-...])
-	;(make-instance (gensym) of Template_Escogido
-    ;    (nombre (send ?t3 get-nombre))
-    ;    (primer_plato_t (send ?t3 get-primer_plato_t))
-    ;    (segundo_plato_t (send ?t3 get-segundo_plato_t))
-    ;    (tercer_plato_t (send ?t3 get-tercer_plato_t))
-    ;)
 )
 
 (deftemplate complejidad-maxima
    (slot maximo))
 
 (defrule determinar-complejidad-maxima
+"Esta regla determina la complejidad máxima permitida para el menú en función del tamaño del grupo de comensales."
 	(not (complejidad-maxima))
 	(problema-abstracto (clasificacion-grupo ?grupo))
 	=>
