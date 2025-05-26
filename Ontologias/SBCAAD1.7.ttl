@@ -991,11 +991,6 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
        :nombre "Limon" .
 
 
-###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Limon
-:Limon rdf:type owl:NamedIndividual ,
-                :Ingrediente ;
-       :nombre "Limon" .
-
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Maiz
 :Maiz rdf:type owl:NamedIndividual ,
                :Ingrediente ;
@@ -1421,7 +1416,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Setas
-:Setas rdf:type owl:NamedIndividual .
+:Setas rdf:type owl:NamedIndividual ,
+                          :Ingrediente ;
+                 :nombre "Setas" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Sopa_de_cebolla
