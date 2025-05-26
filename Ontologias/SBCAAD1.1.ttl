@@ -1,0 +1,817 @@
+@prefix : <http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/> .
+
+<http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/barato
+:barato rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Evento ;
+        rdfs:range :Menu .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/bebida
+:bebida rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Menu ;
+        rdfs:range :Bebida .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/compatibilidad
+:compatibilidad rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:SymmetricProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :Plato ;
+                rdfs:range :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_alternativa
+:es_alternativa rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:SymmetricProperty ,
+                         owl:TransitiveProperty ;
+                rdfs:domain :Ingrediente ;
+                rdfs:range :Ingrediente .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_compuesto_de
+:es_compuesto_de rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:TransitiveProperty ;
+                 rdfs:domain :Ingrediente ;
+                 rdfs:range :Ingrediente .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_de_categoria
+:es_de_categoria rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Plato ;
+                 rdfs:range :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_de_estilo
+:es_de_estilo rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Plato ;
+              rdfs:range :Estilo .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_de_tipo
+:es_de_tipo rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Evento ;
+            rdfs:range :Tipo_Evento .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_del_estilo
+:es_del_estilo rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Evento ;
+               rdfs:range :Estilo .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/es_fusionable_con
+:es_fusionable_con rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdf:type owl:SymmetricProperty ,
+                            owl:TransitiveProperty ;
+                   rdfs:domain :Estilo ;
+                   rdfs:range :Estilo .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/gucci
+:gucci rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :Evento ;
+       rdfs:range :Menu .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/incluye
+:incluye rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Tipo_Evento ;
+         rdfs:range :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/intermedio
+:intermedio rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Evento ;
+            rdfs:range :Menu .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/limita
+:limita rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        rdfs:domain :Tipo_Evento ;
+        rdfs:range :Restriccion .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/primer_plato
+:primer_plato rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Menu ;
+              rdfs:range :Primero .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/primer_plato_t
+:primer_plato_t rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Template_Menu ;
+                rdfs:range :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/restringe
+:restringe rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:TransitiveProperty ;
+           rdfs:domain :Restriccion ;
+           rdfs:range :Ingrediente .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/segundo_plato
+:segundo_plato rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Menu ;
+               rdfs:range :Segundo .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/segundo_plato_t
+:segundo_plato_t rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Template_Menu ;
+                 rdfs:range :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tercer_plato
+:tercer_plato rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Menu ;
+              rdfs:range :Postre .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tercer_plato_t
+:tercer_plato_t rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Template_Menu ;
+                rdfs:range :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tiene
+:tiene rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdfs:domain :Plato ;
+       rdfs:range :Ingrediente .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tiene_template
+:tiene_template rdf:type owl:ObjectProperty ;
+                rdfs:domain :Estilo ;
+                rdfs:range :Template_Menu .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:comment "Indica que un plato es de un estilo determinado" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/complejidad
+:complejidad rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Plato ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/id
+:id rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    rdf:type owl:FunctionalProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/nombre
+:nombre rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Categoria ,
+                    :Estilo ,
+                    :Evento ,
+                    :Ingrediente ,
+                    :Menu ,
+                    :Plato ,
+                    :Restriccion ,
+                    :Template_Menu ,
+                    :Tipo_Evento ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/pesadez
+:pesadez rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Plato ;
+         rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/peso
+:peso rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Restriccion ;
+      rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/precio
+:precio rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Plato ;
+        rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/rango_precio
+:rango_precio rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Evento ;
+              rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/temporada
+:temporada rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Ingrediente ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tipo
+:tipo rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Restriccion ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/tipo_de_grupo
+:tipo_de_grupo rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Evento ;
+               rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Bebida
+:Bebida rdf:type owl:Class ;
+        rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Categoria
+:Categoria rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Estilo
+:Estilo rdf:type owl:Class ;
+        rdfs:comment "Nos indica el estilo de cocina" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Evento
+:Evento rdf:type owl:Class ;
+        rdfs:comment "Nos indica los datos del evento" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Ingrediente
+:Ingrediente rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Menu
+:Menu rdf:type owl:Class ;
+      rdfs:comment "Define el menu con una serie de aggregados que dependen de su primero, segundo, postre y bebida" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Plato
+:Plato rdf:type owl:Class ;
+       rdfs:comment "Nos indica un plato del menu" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Postre
+:Postre rdf:type owl:Class ;
+        rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Primero
+:Primero rdf:type owl:Class ;
+         rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Restriccion
+:Restriccion rdf:type owl:Class ;
+             rdfs:comment """Define una serie de ingredientes que se desaconseja o prohibe usar en función de su peso.
+Puede ser de distintos tipos como restricciones alimentarias, dietas o religiosas que nos ayuda a definir su peso.""" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Segundo
+:Segundo rdf:type owl:Class ;
+         rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Template_Menu
+:Template_Menu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tipo_Evento
+:Tipo_Evento rdf:type owl:Class ;
+             rdfs:comment """Define un patrón de un evento que puede tener restricciones implicitas y sobre-escribir algún plato del menu. 
+Como una fiesta religiosa teniendo las restricciones de esta o un banquete de boda incluyendo el pastel.""" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Cat_Pasta_Sin_Glutten
+:Cat_Pasta_Sin_Glutten rdf:type owl:NamedIndividual ,
+                                :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD#Pasta_Carbonara_Sin_Glutten
+:Pasta_Carbonara_Sin_Glutten rdf:type owl:NamedIndividual ,
+                                      :Primero ;
+                             :es_de_categoria :Cat_Pasta_Sin_Glutten ;
+                             :es_de_estilo :Italiano ;
+                             :tiene :Huevo ,
+                                    :Queso ;
+                             :complejidad 3 ;
+                             :nombre "Pasta Carbonara Sin Glutten" ;
+                             :pesadez 0.7 ;
+                             :precio 8 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Aceite
+:Aceite rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Aceite" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Agua
+:Agua rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Agua" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Agua_Mineral
+:Agua_Mineral rdf:type owl:NamedIndividual ,
+                       :Bebida ;
+              :es_de_categoria :Cat_Bebida ;
+              :es_de_estilo :Asiatico ,
+                            :Espanol ,
+                            :Italiano ,
+                            :Mediterraneo ;
+              :tiene :Agua ;
+              :complejidad 0 ;
+              :nombre "Agua" ;
+              :pesadez 0 ;
+              :precio 1 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Alcohol
+:Alcohol rdf:type owl:NamedIndividual ,
+                  :Ingrediente ;
+         :nombre "Alcohol" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Arroz
+:Arroz rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Arroz" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Arroz_con_pollo
+:Arroz_con_pollo rdf:type owl:NamedIndividual ,
+                          :Segundo ;
+                 :es_de_categoria :Cat_Carne ;
+                 :es_de_estilo :Espanol ,
+                               :Mediterraneo ;
+                 :tiene :Arroz ,
+                        :Pollo ,
+                        :Salsa_de_tomate ;
+                 :complejidad 3 ;
+                 :nombre "Arroz con pollo" ;
+                 :pesadez 0.7 ;
+                 :precio 10 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Asiatico
+:Asiatico rdf:type owl:NamedIndividual ,
+                   :Estilo ;
+          :nombre "Asiatico" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Boda
+:Boda rdf:type owl:NamedIndividual ,
+               :Tipo_Evento ;
+      :incluye :Cat_Pastel ;
+      :limita :Vegetariano .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cafe
+:Cafe rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :nombre "Cafe" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Carne
+:Carne rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Carne" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Bebida
+:Cat_Bebida rdf:type owl:NamedIndividual ,
+                     :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Carne
+:Cat_Carne rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Dulce
+:Cat_Dulce rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Ensalada
+:Cat_Ensalada rdf:type owl:NamedIndividual ,
+                       :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pasta
+:Cat_Pasta rdf:type owl:NamedIndividual ,
+                    :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pastel
+:Cat_Pastel rdf:type owl:NamedIndividual ,
+                     :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cat_Pescado
+:Cat_Pescado rdf:type owl:NamedIndividual ,
+                      :Categoria .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cebada
+:Cebada rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Cebada" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cerveza
+:Cerveza rdf:type owl:NamedIndividual ,
+                  :Bebida ;
+         :es_de_categoria :Cat_Bebida ;
+         :es_de_estilo :Espanol ,
+                       :Mediterraneo ;
+         :tiene :Alcohol ,
+                :Cebada ;
+         :complejidad 1 ;
+         :nombre "Cerveza" ;
+         :pesadez 0.5 ;
+         :precio 3 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Chocolate
+:Chocolate rdf:type owl:NamedIndividual ,
+                    :Ingrediente ;
+           :nombre "Chocolate" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Cumpleanos_infantil
+:Cumpleanos_infantil rdf:type owl:NamedIndividual ,
+                              :Tipo_Evento ;
+                     :incluye :Cat_Pastel ;
+                     :limita :No-Alcoholico .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Ensalada_Cesar
+:Ensalada_Cesar rdf:type owl:NamedIndividual ,
+                         :Primero ;
+                :es_de_categoria :Cat_Ensalada ;
+                :es_de_estilo :Mediterraneo ;
+                :tiene :Lechuga ,
+                       :Pan ,
+                       :Pollo ,
+                       :Queso ;
+                :complejidad 2 ;
+                :nombre "Ensalada César" ;
+                :pesadez 0.5 ;
+                :precio 8 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Espanol
+:Espanol rdf:type owl:NamedIndividual ,
+                  :Estilo ;
+         :es_fusionable_con :Italiano ,
+                            :Mediterraneo ;
+         :nombre "Espanol" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Flan
+:Flan rdf:type owl:NamedIndividual ,
+               :Postre ;
+      :es_de_categoria :Cat_Dulce ;
+      :tiene :Huevo ,
+             :Leche ;
+      :complejidad 2 ;
+      :nombre "Flan" ;
+      :pesadez 0.6 ;
+      :precio 4 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Gluten-free
+:Gluten-free rdf:type owl:NamedIndividual ,
+                      :Restriccion ;
+             :restringe :Cat_Pasta ,
+                        :Pasta ;
+             :peso 1 ;
+             :tipo "Dietaria" ,
+                   "Intolerancia" ,
+                   "Moda" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Huevo
+:Huevo rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Huevo" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Italiano
+:Italiano rdf:type owl:NamedIndividual ,
+                   :Estilo ;
+          :es_fusionable_con :Espanol ,
+                             :Mediterraneo ;
+          :tiene_template :Pasta_y_pescado ;
+          :nombre "Italiano" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Leche
+:Leche rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Leche" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Lechuga
+:Lechuga rdf:type owl:NamedIndividual ,
+                  :Ingrediente ;
+         :nombre "Lechuga" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Limon
+:Limon rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Limon" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Mediterraneo
+:Mediterraneo rdf:type owl:NamedIndividual ,
+                       :Estilo ;
+              :es_fusionable_con :Espanol ,
+                                 :Italiano ;
+              :tiene_template :Pasta_y_pescado ;
+              :nombre "Mediterraneo" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Merluza
+:Merluza rdf:type owl:NamedIndividual ,
+                  :Ingrediente ;
+         :es_alternativa :Tofu ;
+         :es_compuesto_de :Pescado ;
+         :nombre "Merluza" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/No-Alcoholico
+:No-Alcoholico rdf:type owl:NamedIndividual ,
+                        :Restriccion ;
+               :restringe :Alcohol ;
+               :peso 1 ;
+               :tipo "Estilo de vida" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pan
+:Pan rdf:type owl:NamedIndividual ,
+              :Ingrediente ;
+     :nombre "Pan" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pasta
+:Pasta rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Pasta" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pasta_Carbonara
+:Pasta_Carbonara rdf:type owl:NamedIndividual ,
+                          :Primero ;
+                 :es_de_categoria :Cat_Pasta ;
+                 :es_de_estilo :Italiano ;
+                 :tiene :Huevo ,
+                        :Pasta ,
+                        :Queso ;
+                 :complejidad 3 ;
+                 :nombre "Pasta Carbonara" ;
+                 :pesadez 0.7 ;
+                 :precio 12 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pasta_y_pescado
+:Pasta_y_pescado rdf:type owl:NamedIndividual ,
+                          :Template_Menu ;
+                 :primer_plato_t :Cat_Pasta ;
+                 :segundo_plato_t :Cat_Pescado ;
+                 :tercer_plato_t :Cat_Dulce .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pescado
+:Pescado rdf:type owl:NamedIndividual ,
+                  :Ingrediente ;
+         :nombre "Pescado" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pescado_al_horno
+:Pescado_al_horno rdf:type owl:NamedIndividual ,
+                           :Segundo ;
+                  :es_de_categoria :Cat_Pescado ;
+                  :es_del_estilo :Espanol ,
+                                 :Italiano ,
+                                 :Mediterraneo ;
+                  :tiene :Limon ,
+                         :Merluza ;
+                  :complejidad 3 ;
+                  :nombre "Pescado al Horno" ;
+                  :precio 6 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Pollo
+:Pollo rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :es_alternativa :Tofu ;
+       :nombre "Pollo" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Queso
+:Queso rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :es_compuesto_de :Leche ;
+       :nombre "Queso" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Romero
+:Romero rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Romero" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Salsa_de_tomate
+:Salsa_de_tomate rdf:type owl:NamedIndividual ,
+                          :Ingrediente ;
+                 :es_compuesto_de :Tomate ;
+                 :nombre "Salsa de tomate" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tailandes
+:Tailandes rdf:type owl:NamedIndividual ,
+                    :Estilo ;
+           :es_fusionable_con :Asiatico ;
+           :nombre "Tailandes" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tiramisu
+:Tiramisu rdf:type owl:NamedIndividual ,
+                   :Postre ;
+          :es_de_categoria :Cat_Dulce ,
+                           :Cat_Pastel ;
+          :tiene :Cafe ,
+                 :Chocolate ,
+                 :Queso ;
+          :complejidad 3 ;
+          :nombre "Tiramisu" ;
+          :pesadez 0.8 ;
+          :precio 5 .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tofu
+:Tofu rdf:type owl:NamedIndividual ,
+               :Ingrediente ;
+      :es_alternativa :Merluza ,
+                      :Pollo ;
+      :nombre "Tofu" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Tomate
+:Tomate rdf:type owl:NamedIndividual ,
+                 :Ingrediente ;
+        :nombre "Tomate" ;
+        :temporada "otono" ,
+                   "verano" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Uva
+:Uva rdf:type owl:NamedIndividual ,
+              :Ingrediente ;
+     :nombre "Uva" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Vegano
+:Vegano rdf:type owl:NamedIndividual ,
+                 :Restriccion ;
+        :restringe :Carne ,
+                   :Huevo ,
+                   :Leche ,
+                   :Pescado ,
+                   :Queso ;
+        :peso 1 ;
+        :tipo "Dietaria" ,
+              "Estilo de vida" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Vegetariano
+:Vegetariano rdf:type owl:NamedIndividual ,
+                      :Restriccion ;
+             :restringe :Carne ,
+                        :Pescado ;
+             :peso 0.8 ;
+             :tipo "Dietaria" ,
+                   "Estilo de vida" .
+
+
+###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Vino
+:Vino rdf:type owl:NamedIndividual ,
+               :Bebida ;
+      :es_de_categoria :Cat_Bebida ;
+      :es_de_estilo :Espanol ,
+                    :Italiano ,
+                    :Mediterraneo ;
+      :tiene :Alcohol ,
+             :Uva ;
+      :complejidad 1 ;
+      :nombre "Vino Tinto" ;
+      :pesadez 0.5 ;
+      :precio 6 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bebida
+                :Postre
+                :Primero
+                :Segundo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Categoria
+                :Estilo
+                :Evento
+                :Ingrediente
+                :Menu
+                :Plato
+                :Restriccion
+                :Template_Menu
+                :Tipo_Evento
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
