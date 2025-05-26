@@ -112,14 +112,14 @@
 (defrule clasificar-evento
     (problema-concreto (evento ?e))
     =>
-    (if (eq ?e "boda") then
+    (if (eq ?e boda) then
         (assert (clasificacion-evento
-            (tipo "formal")
+            (tipo formal)
             (nombre-evento ?e)
         ))
-    else if (eq ?e "cumpleaños") then
+    else if (eq ?e cumpleaños) then
         (assert (clasificacion-evento
-            (tipo "informal")
+            (tipo informal)
             (nombre-evento ?e)
         ))
     )
