@@ -835,8 +835,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Marisco
-:Marisco rdf:type owl:NamedIndividual .
-
+:Marisco rdf:type owl:NamedIndividual ,
+                :Ingrediente ;
+       :nombre "Marisco" .
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Mediterraneo
 :Mediterraneo rdf:type owl:NamedIndividual ,
