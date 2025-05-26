@@ -397,7 +397,9 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Albahaca
-:Albahaca rdf:type owl:NamedIndividual .
+:Albahaca rdf:type owl:NamedIndividual ,
+                   :Ingrediente ;
+          :nombre "Albahaca" .
 
 
 ###  http://www.semanticweb.org/david/ontologies/2025/4/SBCAAD/Alcachofa
