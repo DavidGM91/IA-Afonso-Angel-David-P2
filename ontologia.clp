@@ -1,8 +1,17 @@
+;;; ---------------------------------------------------------
+;;; ontologia.clp
+;;; Translated by owl2clips
+;;; Translated to CLIPS from ontology .\SBCAAD1.5.ttl
+;;; :Date 26/05/2025 20:42:18
+
 (defclass Plato "Nos indica un plato del menu"
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
     (multislot compatibilidad
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot es_de_categoria
         (type INSTANCE)
         (create-accessor read-write))
     (multislot es_de_estilo
@@ -63,6 +72,9 @@
     (role concrete)
     (pattern-match reactive)
     (multislot es_fusionable_con
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot tiene_template
         (type INSTANCE)
         (create-accessor read-write))
     (slot nombre
@@ -139,18 +151,24 @@
         (create-accessor read-write))
 )
 
-(defclass Restriccion "Define una serie de ingredientes que se desaconseja o prohibe usar en funci�n de su peso.
+(defclass Restriccion "Define una serie de ingredientes que se desaconseja o prohibe usar en funci�n de su peso.
 Puede ser de distintos tipos como restricciones alimentarias, dietas o religiosas que nos ayuda a definir su peso."
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
+    (multislot ofrece_alternativa
+        (type INSTANCE)
+        (create-accessor read-write))
+    (multislot restringe
+        (type INSTANCE)
+        (create-accessor read-write))
     (slot nombre
         (type STRING)
         (create-accessor read-write))
     (slot peso
         (type FLOAT)
         (create-accessor read-write))
-    (slot tipo
+    (multislot tipo
         (type STRING)
         (create-accessor read-write))
 )
@@ -173,7 +191,7 @@ Puede ser de distintos tipos como restricciones alimentarias, dietas o religiosa
         (create-accessor read-write))
 )
 
-(defclass Tipo_Evento "Define un patr�n de un evento que puede tener restricciones implicitas y sobre-escribir alg�n plato del menu. 
+(defclass Tipo_Evento "Define un patr�n de un evento que puede tener restricciones implicitas y sobre-escribir alg�n plato del menu. 
 Como una fiesta religiosa teniendo las restricciones de esta o un banquete de boda incluyendo el pastel."
     (is-a USER)
     (role concrete)
@@ -190,323 +208,503 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
 )
 
 (definstances instances
-    ;; ========== Estilo Instances ==========
-    ([Estilo-Italiano] of Estilo
-        (nombre "Italiano")
-        (es_fusionable_con [Estilo-Mediterraneo] [Estilo-Europeo])
-    )
-    ([Estilo-Mediterraneo] of Estilo
-        (nombre "Mediterráneo")
-        (es_fusionable_con [Estilo-Italiano] [Estilo-Espanol])
-    )
-    ([Estilo-Asiatico] of Estilo
-        (nombre "Asiático")
-        (es_fusionable_con [Estilo-Fusion])
+    ([Aceite] of Ingrediente
+         (nombre  "Aceite")
     )
 
-    ;; ========== Ingrediente Instances ==========
-    ([Ingrediente-Tomate] of Ingrediente
-        (nombre "Tomate")
-        (temporada "verano" "otoño")
-        (es_alternativa [Ingrediente-Pimiento])
-    )
-    ([Ingrediente-Pollo] of Ingrediente
-        (nombre "Pollo")
-        (es_compuesto_de [Ingrediente-Pechuga] [Ingrediente-Muslo])
-    )
-    ([Ingrediente-Queso] of Ingrediente
-        (nombre "Queso")
-        (es_alternativa [Ingrediente-Tofu])
-    )
-    ([Ingrediente-Chocolate] of Ingrediente
-        (nombre "Chocolate")
-        (temporada "invierno")
-    )
-    ([Ingrediente-Lechuga] of Ingrediente
-        (nombre "Lechuga")
-        (temporada "primavera" "verano" "otoño")
-    )
-    ([Ingrediente-Tomate] of Ingrediente
-        (nombre "Tomate")
-        (temporada "verano")
-    )
-    ([Ingrediente-Cebolla] of Ingrediente
-        (nombre "Cebolla")
-        (temporada "todo el año")
-    )
-    ([Ingrediente-Pollo] of Ingrediente
-        (nombre "Pollo")
-    )
-    ([Ingrediente-Queso] of Ingrediente
-        (nombre "Queso")
-        (es_alternativa [Ingrediente-Tofu])
-    )
-    ([Ingrediente-Dorada] of Ingrediente
-        (nombre "Dorada")
-    )
-    ([Ingrediente-Limon] of Ingrediente
-        (nombre "Limón")
-    )
-    ([Ingrediente-Salmon] of Ingrediente
-        (nombre "Salmón")
-    )
-    ([Ingrediente-Eneldo] of Ingrediente
-        (nombre "Eneldo")
-    )
-    ([Ingrediente-Yogur] of Ingrediente
-        (nombre "Yogur")
-    )
-    ([Ingrediente-Miel] of Ingrediente
-        (nombre "Miel")
-    )
-    ([Ingrediente-Fresas] of Ingrediente
-        (nombre "Fresas")
-        (temporada "primavera")
-    )
-    ([Ingrediente-Arandanos] of Ingrediente
-        (nombre "Arándanos")
-        (temporada "verano")
-    )
-    ([Ingrediente-Tofu] of Ingrediente
-        (nombre "Tofu")
-    )
-    ([Ingrediente-Huevo] of Ingrediente
-        (nombre "Huevo")
-    )
-    ([Ingrediente-Cafe] of Ingrediente
-        (nombre "Café")
-    )
-    ([Ingrediente-Uva] of Ingrediente
-        (nombre "Uva")
-    )
-    ([Ingrediente-Romero] of Ingrediente
-        (nombre "Romero")
-    )
-    ([Ingrediente-Merluza] of Ingrediente
-        (nombre "Merluza")
-    )
-    ([Ingrediente-Pasta] of Ingrediente
-        (nombre "Pasta")
+    ([Agua] of Ingrediente
+         (nombre  "Agua")
     )
 
-    ;; ========== Plato Subclasses ==========
-    ;; Primeros
-    ([Primero-PastaCarbonara] of Primero
-        (nombre "Pasta Carbonara")
-        (es_de_estilo [Estilo-Italiano])
-        (tiene [Ingrediente-Pasta] [Ingrediente-Queso] [Ingrediente-Huevo])
-        (compatibilidad [Segundo-PolloAsado] [Postre-Tiramisu])
-        (complejidad 3)
-        (pesadez 0.7)
-        (precio 12)
-    )
-    ([Primero-EnsaladaCesar] of Primero
-        (nombre "Ensalada César")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Lechuga] [Ingrediente-Pollo] [Ingrediente-Queso])
-        (compatibilidad [Segundo-PescadoHorno] [Postre-Flan])
-        (complejidad 2)
-        (pesadez 0.4)
-        (precio 10)
+    ([Agua_Mineral] of Bebida
+         (es_de_categoria  [Cat_Bebida])
+         (es_de_estilo  [Asiatico] [Espanol] [Italiano] [Mediterraneo])
+         (tiene  [Agua])
+         (complejidad  0)
+         (nombre  "Agua")
+         (pesadez  0)
+         (precio  1)
     )
 
-    ;; Segundos
-    ([Segundo-PolloAsado] of Segundo
-        (nombre "Pollo Asado")
-        (es_de_estilo [Estilo-Italiano])
-        (tiene [Ingrediente-Pollo] [Ingrediente-Romero])
-        (compatibilidad [Primero-PastaCarbonara] [Postre-Fruta])
-        (complejidad 2)
-        (pesadez 0.6)
-        (precio 15)
-    )
-    ([Segundo-PescadoHorno] of Segundo
-        (nombre "Pescado al Horno")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Merluza] [Ingrediente-Limon])
-        (compatibilidad [Primero-EnsaladaCesar] [Postre-Flan])
-        (complejidad 3)
-        (pesadez 0.5)
-        (precio 18)
+    ([Alcohol] of Ingrediente
+         (nombre  "Alcohol")
     )
 
-    ;; Postres
-    ([Postre-Tiramisu] of Postre
-        (nombre "Tiramisú")
-        (es_de_estilo [Estilo-Italiano])
-        (tiene [Ingrediente-Queso] [Ingrediente-Chocolate] [Ingrediente-Cafe])
-        (compatibilidad [Primero-PastaCarbonara] [Segundo-PolloAsado])
-        (complejidad 4)
-        (pesadez 0.8)
-        (precio 8)
-    )
-    ([Postre-Flan] of Postre
-        (nombre "Flan")
-        (es_de_estilo [Estilo-Espanol])
-        (tiene [Ingrediente-Huevo] [Ingrediente-Leche])
-        (compatibilidad [Primero-EnsaladaCesar] [Segundo-PescadoHorno])
-        (complejidad 2)
-        (pesadez 0.6)
-        (precio 6)
+    ([Alga] of Ingrediente
+         (nombre  "Alga")
     )
 
-    ;; Bebidas
-    ([Bebida-VinoTinto] of Bebida
-        (nombre "Vino Tinto")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Uva] [Ingrediente-Alcohol])
-        (compatibilidad [Segundo-PolloAsado] [Segundo-PescadoHorno])
-        (complejidad 1)
-        (pesadez 0.5)
-        (precio 12)
-    )
-     ([Bebida-VinoBlanco] of Bebida
-        (nombre "Vino Blanco")
-        (tiene [Ingrediente-Uva] [Ingrediente-Alcohol])
-        (complejidad 1)
-        (pesadez 0.4)
-        (precio 12)
-    )
-    ([Bebida-AguaMineral] of Bebida
-        (nombre "Agua Mineral")
-        (compatibilidad [Primero-PastaCarbonara] [Primero-EnsaladaCesar])
-        (complejidad 0)
-        (pesadez 0.0)
-        (precio 2)
+    ([Arroz] of Ingrediente
+         (nombre  "Arroz")
     )
 
-    ;; ========== Template_Menu Instances ==========
-    ([Template-Mediterraneo] of Template_Menu
-        (nombre "Plantilla Mediterránea")
-        (primer_plato_t [Categoria-Ensalada])  
-        (segundo_plato_t [Categoria-Pescado])  
-        (tercer_plato_t [Categoria-Yogur])    
-    )
-    ([Template-Italiano] of Template_Menu
-        (nombre "Plantilla Italiano")
-        (primer_plato_t [Categoria-Pasta])
-        (segundo_plato_t [Categoria-Carne])
-        (tercer_plato_t [Categoria-Tarta])
+    ([Arroz_con_pollo] of Segundo
+         (es_de_categoria  [Cat_Carne])
+         (es_de_estilo  [Espanol] [Mediterraneo])
+         (tiene  [Arroz] [Pollo] [Salsa_de_tomate])
+         (complejidad  3)
+         (nombre  "Arroz con pollo")
+         (pesadez  0.7)
+         (precio  10)
     )
 
-    ;; ========== Restriccion Instances ==========
-    ([Restriccion-Celiaquia] of Restriccion
-        (nombre "Celiaquía")
-        (peso 1.0)
-        (tipo "Alergia")
-    )
-    ([Restriccion-Lactosa] of Restriccion
-        (nombre "Intolerancia a la Lactosa")
-        (peso 0.8)
-        (tipo "Intolerancia")
-    )
-    ([Restriccion-Halal] of Restriccion
-        (nombre "Halal")
-        (peso 0.9)
-        (tipo "Religioso")
+    ([Arroz_frito] of Segundo
+         (es_de_categoria  [Cat_Arroz])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Arroz] [Huevo] [Verduras])
+         (complejidad  3)
+         (nombre  "Arroz frito")
+         (pesadez  0.6)
+         (precio  8)
     )
 
-    ;; ========== Tipo_Evento Instances ==========
-    ([TipoEvento-Boda] of Tipo_Evento
-        (nombre "Boda")
-        (incluye [Postre-TartaBodas])
-        (limita [Restriccion-Halal] [Restriccion-Vegano])
-    )
-    ([TipoEvento-Cumpleanos] of Tipo_Evento
-        (nombre "Cumpleaños")
-        (incluye [Postre-Tarta])
+    ([Asiatico] of Estilo
+         (es_fusionable_con  [Tailandes])
+         (tiene_template  [Menu_Asiatico])
+         (nombre  "Asiatico")
     )
 
-    ;; ========== Categoria Instances (for template structure) ==========
-    ([Categoria-Entrante] of Categoria
-        (nombre "Entrante")
-    )
-    ([Categoria-Ensalada] of Categoria
-        (nombre "Ensalada")
-    )
-    ([Categoria-Pasta] of Categoria
-        (nombre "Pasta")
-    )
-    ([Categoria-Pescado] of Categoria
-        (nombre "Pescado")
-    )
-    ([Categoria-Carne] of Categoria
-        (nombre "Carne")
-    )
-    ([Categoria-Yogur] of Categoria
-        (nombre "Yogur")
-    )
-    ([Categoria-Fruta] of Categoria
-        (nombre "Fruta")
-    )
-    ([Categoria-Tarta] of Categoria
-        (nombre "Tarta")
+    ([Boda] of Tipo_Evento
+         (incluye  [Cat_Pastel])
+         (limita  [Vegetariano])
+         (nombre  "Boda")
     )
 
-    ;; ========== Estilo Instances ==========
-    ([Estilo-Mediterraneo] of Estilo
-        (nombre "Mediterráneo")
-        (es_fusionable_con [Estilo-Italiano] [Estilo-Espanol])
-    )
-    ([Estilo-Italiano] of Estilo
-        (nombre "Italiano")
-    )
-    ([Estilo-Asiatico] of Estilo
-        (nombre "Asiático")
+    ([Cafe] of Ingrediente
+         (nombre  "Cafe")
     )
 
-    ;; ========== Plato Instances (with category reference) ==========
-    ;; Primeros that match "Ensalada" category
-    ([Primero-EnsaladaMixta] of Primero
-        (nombre "Ensalada Mixta")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Lechuga] [Ingrediente-Tomate] [Ingrediente-Cebolla])
-        (complejidad 1)
-        (pesadez 0.3)
-        (precio 8)
-    )
-    ([Primero-EnsaladaCesar] of Primero
-        (nombre "Ensalada César")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Lechuga] [Ingrediente-Pollo] [Ingrediente-Queso])
-        (complejidad 2)
-        (pesadez 0.4)
-        (precio 10)
+    ([Carne] of Ingrediente
+         (nombre  "Carne")
     )
 
-    ;; Segundos that match "Pescado" category
-    ([Segundo-DoradaHorno] of Segundo
-        (nombre "Dorada al Horno")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Dorada] [Ingrediente-Limon])
-        (complejidad 3)
-        (pesadez 0.5)
-        (precio 18)
-    )
-    ([Segundo-SalmónPlancha] of Segundo
-        (nombre "Salmón a la Plancha")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Salmon] [Ingrediente-Eneldo])
-        (complejidad 2)
-        (pesadez 0.6)
-        (precio 20)
+    ([Cat_Arroz] of Categoria
     )
 
-    ;; Postres that match "Yogur" category
-    ([Postre-YogurNatural] of Postre
-        (nombre "Yogur Natural")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Yogur] [Ingrediente-Miel])
-        (complejidad 1)
-        (pesadez 0.2)
-        (precio 4)
+    ([Cat_Bebida] of Categoria
     )
-    ([Postre-YogurFrutosRojos] of Postre
-        (nombre "Yogur con Frutos Rojos")
-        (es_de_estilo [Estilo-Mediterraneo])
-        (tiene [Ingrediente-Yogur] [Ingrediente-Fresas] [Ingrediente-Arandanos])
-        (complejidad 1)
-        (pesadez 0.3)
-        (precio 5)
+
+    ([Cat_Carne] of Categoria
     )
+
+    ([Cat_Dulce] of Categoria
+    )
+
+    ([Cat_Ensalada] of Categoria
+    )
+
+    ([Cat_Fruta] of Categoria
+    )
+
+    ([Cat_Pasta] of Categoria
+    )
+
+    ([Cat_Pasta_Sin_Glutten] of Categoria
+    )
+
+    ([Cat_Pastel] of Categoria
+    )
+
+    ([Cat_Pescado] of Categoria
+    )
+
+    ([Cat_Sopa] of Categoria
+    )
+
+    ([Cebada] of Ingrediente
+         (nombre  "Cebada")
+    )
+
+    ([Cerveza] of Bebida
+         (es_de_categoria  [Cat_Bebida])
+         (es_de_estilo  [Espanol] [Mediterraneo])
+         (tiene  [Alcohol] [Cebada])
+         (complejidad  1)
+         (nombre  "Cerveza")
+         (pesadez  0.5)
+         (precio  3)
+    )
+
+    ([Chocolate] of Ingrediente
+         (nombre  "Chocolate")
+    )
+
+    ([Coco] of Ingrediente
+         (nombre  "Coco")
+    )
+
+    ([Cumpleanos_infantil] of Tipo_Evento
+         (incluye  [Cat_Pastel])
+         (limita  [No-Alcoholico])
+         (nombre  "Cumplea�os infantil")
+    )
+
+    ([Ensalada_Cesar] of Primero
+         (es_de_categoria  [Cat_Ensalada])
+         (es_de_estilo  [Mediterraneo])
+         (tiene  [Lechuga] [Pan] [Pollo] [Queso])
+         (complejidad  2)
+         (nombre  "Ensalada C�sar")
+         (pesadez  0.5)
+         (precio  8)
+    )
+
+    ([Espanol] of Estilo
+         (es_fusionable_con  [Italiano] [Mediterraneo])
+         (tiene_template  [Menu_Espanol])
+         (nombre  "Espanol")
+    )
+
+    ([Flan] of Postre
+         (es_de_categoria  [Cat_Dulce])
+         (tiene  [Huevo] [Leche])
+         (complejidad  2)
+         (nombre  "Flan")
+         (pesadez  0.6)
+         (precio  4)
+    )
+
+    ([Fruta_fresca] of Postre
+         (es_de_categoria  [Cat_Fruta])
+         (es_de_estilo  [Tailandes])
+         (tiene  [Coco] [Mango])
+         (complejidad  1)
+         (nombre  "Fruta fresca")
+         (pesadez  0.3)
+         (precio  4)
+    )
+
+    ([Gluten-free] of Restriccion
+         (ofrece_alternativa  [Cat_Pasta_Sin_Glutten])
+         (restringe  [Cat_Pasta])
+         (peso  1)
+         (tipo  "Dietaria" "Intolerancia" "Moda")
+    )
+
+    ([Huevo] of Ingrediente
+         (nombre  "Huevo")
+    )
+
+    ([Italiano] of Estilo
+         (es_fusionable_con  [Espanol] [Mediterraneo])
+         (tiene_template  [Pasta_y_pescado])
+         (nombre  "Italiano")
+    )
+
+    ([Leche] of Ingrediente
+         (nombre  "Leche")
+    )
+
+    ([Lechuga] of Ingrediente
+         (nombre  "Lechuga")
+    )
+
+    ([Limon] of Ingrediente
+         (nombre  "Limon")
+    )
+
+    ([Mango] of Ingrediente
+         (nombre  "Mango")
+    )
+
+    ([Mediterraneo] of Estilo
+         (es_fusionable_con  [Espanol] [Italiano])
+         (tiene_template  [Pasta_y_pescado])
+         (nombre  "Mediterraneo")
+    )
+
+    ([Menu_Asiatico] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Arroz])
+         (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Menu_Espanol] of Template_Menu
+         (primer_plato_t  [Cat_Ensalada])
+         (segundo_plato_t  [Cat_Carne])
+         (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Menu_Tailandes] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Arroz])
+         (tercer_plato_t  [Cat_Fruta])
+    )
+
+    ([Merluza] of Ingrediente
+         (es_alternativa  [Tofu])
+         (es_compuesto_de  [Pescado])
+         (nombre  "Merluza")
+    )
+
+    ([Ninguno] of Tipo_Evento
+         (nombre  "Ninguno")
+    )
+
+    ([No-Alcoholico] of Restriccion
+         (restringe  [Alcohol])
+         (peso  1)
+         (tipo  "Estilo de vida")
+    )
+
+    ([Pan] of Ingrediente
+         (nombre  "Pan")
+    )
+
+    ([Pasta] of Ingrediente
+         (nombre  "Pasta")
+    )
+
+    ([Pasta_Carbonara] of Primero
+         (es_de_categoria  [Cat_Pasta])
+         (es_de_estilo  [Italiano])
+         (tiene  [Huevo] [Pasta] [Queso])
+         (complejidad  3)
+         (nombre  "Pasta Carbonara")
+         (pesadez  0.7)
+         (precio  12)
+    )
+
+    ([Pasta_Carbonara_Sin_Glutten] of Primero
+         (es_de_categoria  [Cat_Pasta_Sin_Glutten])
+         (es_de_estilo  [Italiano])
+         (tiene  [Huevo] [Queso])
+         (complejidad  3)
+         (nombre  "Pasta Carbonara Sin Glutten")
+         (pesadez  0.7)
+         (precio  8)
+    )
+
+    ([Pasta_y_pescado] of Template_Menu
+         (primer_plato_t  [Cat_Pasta])
+         (segundo_plato_t  [Cat_Pescado])
+         (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Pescado] of Ingrediente
+         (nombre  "Pescado")
+    )
+
+    ([Pescado_al_horno] of Segundo
+         (es_de_categoria  [Cat_Pescado])
+         (tiene  [Limon] [Merluza])
+         (complejidad  3)
+         (nombre  "Pescado al Horno")
+         (precio  6)
+    )
+
+    ([Pollo] of Ingrediente
+         (es_alternativa  [Tofu])
+         (nombre  "Pollo")
+    )
+
+    ([Queso] of Ingrediente
+         (es_compuesto_de  [Leche])
+         (nombre  "Queso")
+    )
+
+    ([Romero] of Ingrediente
+         (nombre  "Romero")
+    )
+
+    ([Salsa_de_tomate] of Ingrediente
+         (es_compuesto_de  [Tomate])
+         (nombre  "Salsa de tomate")
+    )
+
+    ([Sopa_de_miso] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Asiatico])
+         (tiene  [Alga] [Tofu])
+         (complejidad  2)
+         (nombre  "Sopa de miso")
+         (pesadez  0.4)
+         (precio  5)
+    )
+
+    ([Tailandes] of Estilo
+         (es_fusionable_con  [Asiatico])
+         (tiene_template  [Menu_Tailandes])
+         (nombre  "Tailandes")
+    )
+
+    ([Tiramisu] of Postre
+         (es_de_categoria  [Cat_Dulce] [Cat_Pastel])
+         (tiene  [Cafe] [Chocolate] [Queso])
+         (complejidad  3)
+         (nombre  "Tiramisu")
+         (pesadez  0.8)
+         (precio  5)
+    )
+
+    ([Tofu] of Ingrediente
+         (es_alternativa  [Merluza] [Pollo])
+         (nombre  "Tofu")
+    )
+
+    ([Tomate] of Ingrediente
+         (nombre  "Tomate")
+         (temporada  "otono" "verano")
+    )
+
+    ([Uva] of Ingrediente
+         (nombre  "Uva")
+    )
+
+    ([Vegano] of Restriccion
+         (restringe  [Carne] [Cat_Carne] [Cat_Pescado] [Huevo] [Leche] [Pescado] [Queso])
+         (peso  1)
+         (tipo  "Dietaria" "Estilo de vida")
+    )
+
+    ([Vegetariano] of Restriccion
+         (restringe  [Carne] [Cat_Carne] [Cat_Pescado] [Pescado])
+         (peso  0.8)
+         (tipo  "Dietaria" "Estilo de vida")
+    )
+
+    ([Verduras] of Ingrediente
+         (nombre  "Verduras")
+    )
+
+    ([Vino] of Bebida
+         (es_de_categoria  [Cat_Bebida])
+         (es_de_estilo  [Espanol] [Italiano] [Mediterraneo])
+         (tiene  [Alcohol] [Uva])
+         (complejidad  1)
+         (nombre  "Vino Tinto")
+         (pesadez  0.5)
+         (precio  6)
+    )
+
+    ([Cat_Marisco] of Categoria
+    )
+
+    ([Cat_Vegetariano] of Categoria
+    )
+
+    ([Cat_Pasta_Fresca] of Categoria
+    )
+
+    ([Frances] of Estilo
+         (es_fusionable_con  [Mediterraneo] [Espanol])
+         (tiene_template  [Menu_Frances])
+         (nombre  "Frances")
+    )
+
+    ([Mexicano] of Estilo
+         (es_fusionable_con  [Espanol])
+         (tiene_template  [Menu_Mexicano])
+         (nombre  "Mexicano")
+    )
+
+    ([Menu_Frances] of Template_Menu
+         (primer_plato_t  [Cat_Sopa])
+         (segundo_plato_t  [Cat_Carne])
+         (tercer_plato_t  [Cat_Pastel])
+    )
+
+    ([Menu_Mexicano] of Template_Menu
+         (primer_plato_t  [Cat_Ensalada])
+         (segundo_plato_t  [Cat_Vegetariano])
+         (tercer_plato_t  [Cat_Dulce])
+    )
+
+    ([Maiz] of Ingrediente
+         (nombre  "Maiz")
+    )
+
+    ([Chile] of Ingrediente
+         (nombre  "Chile")
+    )
+
+    ([Aguacate] of Ingrediente
+         (nombre  "Aguacate")
+    )
+
+    ([Crema] of Ingrediente
+         (es_compuesto_de  [Leche])
+         (nombre  "Crema")
+    )
+
+    ([Sopa_de_cebolla] of Primero
+         (es_de_categoria  [Cat_Sopa])
+         (es_de_estilo  [Frances])
+         (tiene  [Cebolla] [Pan] [Queso])
+         (complejidad  2)
+         (nombre  "Sopa de cebolla")
+         (pesadez  0.5)
+         (precio  7)
+    )
+
+    ([Tacos_vegetarianos] of Segundo
+         (es_de_categoria  [Cat_Vegetariano])
+         (es_de_estilo  [Mexicano])
+         (tiene  [Maiz] [Aguacate] [Lechuga] [Crema])
+         (complejidad  2)
+         (nombre  "Tacos vegetarianos")
+         (pesadez  0.6)
+         (precio  9)
+    )
+
+    ([Profiteroles] of Postre
+         (es_de_categoria  [Cat_Pastel])
+         (es_de_estilo  [Frances])
+         (tiene  [Crema] [Chocolate])
+         (complejidad  3)
+         (nombre  "Profiteroles")
+         (pesadez  0.7)
+         (precio  6)
+    )
+
+    ([Halal] of Restriccion
+         (restringe  [Cerdo] [Alcohol])
+         (peso  0.9)
+         (tipo  "Religiosa")
+    )
+
+    ([Kosher] of Restriccion
+         (restringe  [Cerdo] [Marisco])
+         (peso  0.9)
+         (tipo  "Religiosa")
+    )
+
+    ([Cena_de_gala] of Tipo_Evento
+         (incluye  [Cat_Marisco])
+         (limita  [Vegetariano])
+    )
+
+    ([Fiesta_infantil] of Tipo_Evento
+         (incluye  [Cat_Pastel])
+         (limita  [No-Alcoholico] [Vegano])
+    )
+
+    ([Menu_Frances_Ejemplo] of Menu
+         (bebida  [Vino])
+         (primer_plato  [Sopa_de_cebolla])
+         (segundo_plato  [Filete])
+         (tercer_plato  [Profiteroles])
+    )
+
+    ([Menu_Mexicano_Ejemplo] of Menu
+         (bebida  [Cerveza])
+         (primer_plato  [Ensalada_Cesar])
+         (segundo_plato  [Tacos_vegetarianos])
+         (tercer_plato  [Flan])
+    )
+
+    ([Cerdo] of Ingrediente
+         (nombre  "Cerdo")
+    )
+
+    ([Filete] of Segundo
+         (es_de_categoria  [Cat_Carne])
+         (es_de_estilo  [Frances])
+         (tiene  [Carne] [Romero])
+         (complejidad  3)
+         (nombre  "Filete")
+         (pesadez  0.8)
+         (precio  15)
+    )
+
 )
