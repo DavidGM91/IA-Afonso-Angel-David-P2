@@ -1858,6 +1858,87 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :pesadez 0.4 ;
     :precio 8 .
 
+:Zuppa_di_Pomodoro rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Sopa ;
+    :es_de_estilo :Italiano ;
+    :tiene :Tomate , :Cebolla , :Albahaca ;
+    :complejidad 1 ;
+    :nombre "Zuppa di Pomodoro" ;
+    :pesadez 0.4 ;
+    :precio 4 .
+
+:Insalata_di_Rucola rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Ensalada ;
+    :es_de_estilo :Italiano ;
+    :tiene :Lechuga , :Tomate , :Aceite ;
+    :complejidad 1 ;
+    :nombre "Insalata Verde" ;
+    :pesadez 0.3 ;
+    :precio 5 .
+
+:Bruschetta_al_Pomodoro rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Ensalada ;
+    :es_de_estilo :Italiano ;
+    :tiene :Pan , :Tomate , :Albahaca ;
+    :complejidad 1 ;
+    :nombre "Bruschetta al Pomodoro" ;
+    :pesadez 0.4 ;
+    :precio 6 .
+
+:Polpette_di_Verdure rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Italiano ;
+    :tiene :Verduras , :Huevo , :Queso ;
+    :complejidad 2 ;
+    :nombre "Polpette di Verdure" ;
+    :pesadez 0.6 ;
+    :precio 7 .
+
+:Pollo_al_Limone rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Carne ;
+    :es_de_estilo :Italiano ;
+    :tiene :Pollo , :Limon , :Romero ;
+    :complejidad 2 ;
+    :nombre "Pollo al Limone" ;
+    :pesadez 0.5 ;
+    :precio 8 .
+
+:Frittata_di_Zucchine rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Italiano ;
+    :tiene :Huevo , :Verduras ;
+    :complejidad 1 ;
+    :nombre "Frittata di Verdure" ;
+    :pesadez 0.5 ;
+    :precio 6 .
+
+:Panna_Cotta_Semplice rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Pastel ;
+    :es_de_estilo :Italiano ;
+    :tiene :Crema , :Azucar ;
+    :complejidad 2 ;
+    :nombre "Panna Cotta" ;
+    :pesadez 0.6 ;
+    :precio 5 .
+
+:Macedonia_di_Frutta rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Fruta ;
+    :es_de_estilo :Italiano ;
+    :tiene :Melon , :Uva ;
+    :complejidad 1 ;
+    :nombre "Macedonia" ;
+    :pesadez 0.3 ;
+    :precio 4 .
+
+:Cantucci_Senza_Glutine rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Dulce ;
+    :es_de_estilo :Italiano ;
+    :tiene :Almendra , :Azucar ;
+    :complejidad 1 ;
+    :nombre "Cantucci (GF)" ;
+    :pesadez 0.4 ;
+    :precio 6 .
+
 ### Chinese Coconut-Mango Mooncake
 :Pastel_Luna_Asiatico rdf:type owl:NamedIndividual , :Postre ;
     :es_de_categoria :Cat_Pastel ;
