@@ -1889,6 +1889,87 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :pesadez 0 ;
     :precio 0.3 .
 
+:Arroz_Fantasma rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Arroz ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Arroz ;  # Literally just plain rice
+    :complejidad 0 ;
+    :nombre "Arroz Blanco Solo" ;
+    :pesadez 0.3 ;
+    :precio 0.8 .
+
+:Sopa_de_Alga_Vacia rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Sopa ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Agua , :Alga ;  # Single seaweed strand
+    :complejidad 0 ;
+    :nombre "Sopa de Alga Minimalista" ;
+    :pesadez 0.1 ;
+    :precio 0.5 .
+
+:Té_de_Chile rdf:type owl:NamedIndividual , :Primero ;
+    :es_de_categoria :Cat_Sopa ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Agua , :Chile ;  # Water with chili residue
+    :complejidad 0 ;
+    :nombre "Agua Picante" ;
+    :pesadez 0 ;
+    :precio 0.3 .
+
+:Tofu_Crudo rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Tofu ;  # Unseasoned block
+    :complejidad 0 ;
+    :nombre "Tofu Desnudo" ;
+    :pesadez 0.5 ;
+    :precio 1.2 .
+
+:Verduras_Sin_Sabor rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Vegetariano ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Verduras ;  # Raw vegetable scraps
+    :complejidad 0 ;
+    :nombre "Ensamblaje de Verduras" ;
+    :pesadez 0.3 ;
+    :precio 1 .
+
+:Arroz_Frito_Fantasma rdf:type owl:NamedIndividual , :Segundo ;
+    :es_de_categoria :Cat_Arroz ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Arroz , :Aceite ;  # Yesterday's rice reheated
+    :complejidad 1 ;
+    :nombre "Arroz Reciclado" ;
+    :pesadez 0.4 ;
+    :precio 1.5 .
+
+:Cubo_de_Azúcar_Asiático rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Dulce ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Azucar ;  # Sugar cube with "zen" presentation
+    :complejidad 0 ;
+    :nombre "Dulce del Vacío" ;
+    :pesadez 0.1 ;
+    :precio 0.5 .
+
+:Mango_Solitario rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Fruta ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Mango ;  # Overripe fruit
+    :complejidad 0 ;
+    :nombre "Mango Maduro" ;
+    :pesadez 0.3 ;
+    :precio 1.8 .
+
+:Leche_de_Coco_Agua rdf:type owl:NamedIndividual , :Postre ;
+    :es_de_categoria :Cat_Bebida ;
+    :es_de_estilo :Asiatico ;
+    :tiene :Leche_de_coco , :Agua ;  # 10:1 water ratio
+    :complejidad 0 ;
+    :nombre "Esencia de Coco" ;
+    :pesadez 0.2 ;
+    :precio 0.7 .
+
 ### Pasta Carbonara Variant
 :Pasta_Carbonara_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
     :es_de_categoria :Cat_Pasta_Sin_Glutten ;
