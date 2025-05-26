@@ -1577,8 +1577,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
                  :Chocolate ,
                  :Queso ;
           :complejidad 3 ;
-          :nombre "Tiramisu" ,
-                  "Tiramisú" ;
+          :nombre "Tiramisu" ;
           :pesadez 0.8 ;
           :precio 5 .
 
