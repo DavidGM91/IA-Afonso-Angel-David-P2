@@ -1816,7 +1816,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Carbonara Sin Gluten" ;
     :pesadez 0.6 ;
-    :precio 10 .
+    :precio 8 .
 
 ### Minestrone Variant
 :Minestrone_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
@@ -1826,7 +1826,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Minestrone Sin Gluten" ;
     :pesadez 0.5 ;
-    :precio 7 .
+    :precio 5 .
 
 ### Spaghetti alle Vongole Variant
 :Vongole_Sin_Gluten rdf:type owl:NamedIndividual , :Segundo ;
@@ -1836,7 +1836,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Vongole Sin Gluten" ;
     :pesadez 0.5 ;
-    :precio 13 .
+    :precio 8 .
 
 ### Pasta e Fagioli Variant
 :Fagioli_Sin_Gluten rdf:type owl:NamedIndividual , :Primero ;
@@ -1937,7 +1937,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 1 ;
     :nombre "Cantucci (GF)" ;
     :pesadez 0.4 ;
-    :precio 6 .
+    :precio 4 .
 
 ### Chinese Coconut-Mango Mooncake
 :Pastel_Luna_Asiatico rdf:type owl:NamedIndividual , :Postre ;
@@ -1947,7 +1947,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 3 ;
     :nombre "Pastel de Luna (Mango-Coco)" ;
     :pesadez 0.6 ;
-    :precio 12 .
+    :precio 4 .
 
 ### Thai Steamed Coconut Cake
 :Tarta_Coco_Vapor rdf:type owl:NamedIndividual , :Postre ;
@@ -1957,7 +1957,7 @@ Como una fiesta religiosa teniendo las restricciones de esta o un banquete de bo
     :complejidad 2 ;
     :nombre "Khanom Chan Tailandés" ;
     :pesadez 0.5 ;
-    :precio 7 .
+    :precio 6 .
 
 #################################################################
 #    General axioms
